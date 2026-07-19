@@ -1,0 +1,114 @@
+baseurl: https://yourusername.github.io
+locale: zh-cn
+theme: stack
+title: 我的博客
+
+copyright: "© 2026 你的名字"
+
+params:
+  mainSections:
+    - post
+  featuredImageField: image
+  rssFullContent: true
+  
+  # 网站外观
+  colorScheme:
+    toggle: true
+    default: auto
+  
+  # 侧边栏
+  sidebar:
+    subtitle: "记录生活，分享技术"
+    avatar: ""  # 头像路径，空字符串表示不显示
+    compact: false
+  
+  # 文章设置
+  article:
+    headingAnchor: true
+    math: false
+    toc: true
+    readingTime: true
+    license:
+      enabled: true
+      default: "Licensed under CC BY-NC-SA 4.0"
+  
+  # 评论系统 - Giscus
+  comments:
+    enabled: true
+    provider: giscus
+    giscus:
+      repo: "Shema-Sunf/doku_blog_comments"
+      repoID: "R_kgDOTdDKsQ"
+      category: "Announcements"
+      categoryID: "DIC_kwDOTdDKsc4DBgef"
+      mapping: pathname
+      reactionsEnabled: 1
+      emitMetadata: 0
+      lightTheme: light
+      darkTheme: dark_dimmed
+      lang: zh-CN
+      inputPosition: bottom
+      strict: 0
+      loading: lazy
+  
+  # 搜索
+  widgets:
+    homepage: []
+    page: []
+  
+  # 社交链接
+  opengraph:
+    twitter:
+      site: ""
+      card: summary_large_image
+
+# 菜单
+menu:
+  main:
+    - identifier: home
+      name: 首页
+      url: /
+      weight: 1
+      params:
+        icon: home
+    - identifier: archives
+      name: 归档
+      url: /archives/
+      weight: 2
+      params:
+        icon: archives
+    - identifier: search
+      name: 搜索
+      url: /search/
+      weight: 3
+      params:
+        icon: search
+
+# 输出格式
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# 相关文章
+related:
+  includeNewer: true
+  threshold: 60
+  toLower: false
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 200
+
+# 分页
+pagination:
+  pagerSize: 10
+
+# 安全设置
+security:
+  funcs:
+    getenv:
+      - ^HUGO_
+      - ^CI$
