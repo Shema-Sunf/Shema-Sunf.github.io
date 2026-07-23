@@ -1,0 +1,58 @@
+{{ define "main" }}
+<div id="content">
+    <!-- 左侧：主要内容区域 -->
+    <main class="main-content">
+        <article>
+            <h2>{{ .Title }}</h2>
+            <div class="tag-post-list">
+                {{ range .Pages }}
+                <div class="tag-post-item">
+                    <div class="tag-post-date">{{ .Date.Format "2006/01/02" }}</div>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    <p>{{ .Plain | safeHTML | truncate 150 }}</p>
+                </div>
+                {{ end }}
+            </div>
+            <p style="margin-top: 2.5rem;"><a href="{{ relLangURL (printf "/tags") }}">← 所有标签</a></p>
+        </article>
+    </main>
+
+    <!-- 右侧边栏 -->
+    <aside id="right-sidebar">
+        <!-- 最近文章列表 -->
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">最近文章</h3>
+            <div class="sidebar-content">
+                {{ $recent_posts := where .Site.RegularPages "Section" "posts" | first 6 }}
+                {{ range $recent_posts }}
+                <div class="recent-post-item">
+                    <span class="recent-post-date">{{ .Date.Format "01/02" }}</span>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <!-- 标签列表 -->
+        {{ if .Site.Params.sidebar.tags.enable }}
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">标签</h3>
+            <div class="sidebar-content">
+                <ul class="sidebar-tags">
+                {{ $tags_limit := (or (index .Site.Params.sidebar.tags "limit") 10) }}
+                {{ $tags := .Site.Taxonomies.tags.ByCount }}
+                {{ range $tags | first $tags_limit }}
+                    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="tag-count">({{ .Count }})</span></a></li>
+                {{ end }}
+                </ul>
+                {{ if gt (len $tags) $tags_limit }}
+                <div class="more-tags">
+                    <a href="{{ relLangURL (printf "/tags") }}"><b>{{ or (index .Site.Params.sidebar.tags "more-text") "更多标签..." }}</b></a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </aside>
+</div>
+{{ end }}

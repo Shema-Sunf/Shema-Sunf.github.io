@@ -1,110 +1,72 @@
-baseurl: https://yourusername.github.io
-locale: zh-cn
-theme: stack
-title: 我的博客
+baseURL: 'https://shema-sunf.github.io'
+locale: 'zh-cn'
+title: '毒毒糖果铺'
+theme: 'neopost'
 
-copyright: "© 2026 你的名字"
+# 文章链接格式
+permalinks:
+  posts: "/posts/:contentbasename/"
 
 params:
-  mainSections:
-    - post
-  featuredImageField: image
-  rssFullContent: true
+  # 主题配色（可选: light-blue, dark-blue, light-green, light-yellow, light-pink, light-purple）
+  theme: "light-purple"
   
-  # 网站外观
-  colorScheme:
-    toggle: true
-    default: auto
+  # 网站图标
+  favicon: "/favicon.ico"
   
-  # 侧边栏
+  # 每页显示文章数（单篇博客模式）
+  posts-per-page: 1
+  
+  # 目录自动编号
+  toc-auto-numbering: false
+  
+  # 侧边栏标签设置
   sidebar:
-    subtitle: "记录生活，分享技术"
-    avatar: ""  # 头像路径，空字符串表示不显示
-    compact: false
+    tags:
+      enable: true
+      limit: 5
+      more-text: "更多标签..."
   
-  # 文章设置
-  article:
-    headingAnchor: true
-    math: false
-    toc: true
-    readingTime: true
-    license:
-      enabled: true
-      default: "Licensed under CC BY-NC-SA 4.0"
-  
-  # 评论系统 - Giscus
-  comments:
-    enabled: true
-    provider: giscus
-    giscus:
-      repo: "Shema-Sunf/doku_blog_comments"
-      repoID: "R_kgDOTdDKsQ"
-      category: "Announcements"
-      categoryID: "DIC_kwDOTdDKsc4DBgef"
-      mapping: pathname
-      reactionsEnabled: 1
-      emitMetadata: 0
-      lightTheme: light
-      darkTheme: dark_dimmed
-      lang: zh-CN
-      inputPosition: bottom
-      strict: 0
-      loading: lazy
-  
-  # 搜索
-  widgets:
-    homepage: []
-    page: []
-  
-  # 社交链接
-  opengraph:
-    twitter:
-      site: ""
-      card: summary_large_image
+  # 阅读更多设置
+  read-more:
+    length-limit: 150
+    text:
+      more: "展开更多"
+      less: "收起内容"
 
-# 菜单
+# 菜单（neopost 主题实际上不使用这个，但保留以备后用）
 menu:
   main:
     - identifier: home
       name: 首页
       url: /
       weight: 1
-      params:
-        icon: home
-    - identifier: archives
-      name: 归档
-      url: /archives/
-      weight: 2
-      params:
-        icon: archives
-    - identifier: search
-      name: 搜索
-      url: /search/
-      weight: 3
-      params:
-        icon: search
 
 # 输出格式
 outputs:
   home:
     - HTML
     - RSS
-    - JSON
-
-# 相关文章
-related:
-  includeNewer: true
-  threshold: 60
-  toLower: false
-  indices:
-    - name: tags
-      weight: 100
-    - name: categories
-      weight: 200
 
 # 分页
 pagination:
-  pagerSize: 10
+  pagerSize: 1
+
+# 启用Git信息（用于自动获取最后更新时间）
+enableGitInfo: true
+
+# Frontmatter配置
+frontmatter:
+  date:
+    - date
+    - publishDate
+    - pubDate
+  lastmod:
+    - lastmod
+    - :git
+    - date
+    - publishDate
+    - pubDate
 
 # 安全设置
 security:

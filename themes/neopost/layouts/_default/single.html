@@ -1,0 +1,124 @@
+{{ define "main" }}
+<div id="content">
+    <!-- 左侧：主要内容区域 -->
+    <main class="main-content">
+        <article>
+            {{- if (index .Params "table-of-contents") }}
+            <div id="post-toc-mobile">
+                <button id="post-toc-btn" class="dropbox-btn" onclick="toggleDropbox('post-toc')" >☰</button>
+                <div id="post-toc" class="dropbox-content table-of-contents float">
+                    {{ partial "toc.html" . }}
+                </div>
+            </div>
+            {{ end }}
+            <h2>{{ .Title }}</h2>
+            {{ $tags := .Params.tags }}
+            tags:
+            {{ range $index, $tag := .Params.tags }}
+            <a href="{{ relLangURL (printf "/tags/%s" $tag) }}">{{ $tag }}</a>{{ if ne $index (sub ($tags | len) 1) }},{{ end }}
+            {{ end }}
+            <div class="post-header">
+                @{{ .Params.author }} <span class="timestamp">{{ .Date.Format "2006/01/02" }}</span>
+                {{ if .GitInfo }}
+                {{ if ne .Date.Year .GitInfo.AuthorDate.Year }}
+                <span class="last-updated">（最后更新: {{ .GitInfo.AuthorDate.Format "2006/01/02" }}）</span>
+                {{ else if ne .Date.Month .GitInfo.AuthorDate.Month }}
+                <span class="last-updated">（最后更新: {{ .GitInfo.AuthorDate.Format "2006/01/02" }}）</span>
+                {{ else if ne .Date.Day .GitInfo.AuthorDate.Day }}
+                <span class="last-updated">（最后更新: {{ .GitInfo.AuthorDate.Format "2006/01/02" }}）</span>
+                {{ end }}
+                {{ else if ne .Date .Lastmod }}
+                <span class="last-updated">（最后更新: {{ .Lastmod.Format "2006/01/02" }}）</span>
+                {{ end }}
+            </div>
+            <div class="post-content">
+                {{ .Content | safeHTML }}
+            </div>
+            {{ with index .Params "ending-images" }}
+            <div class="photosetx3">
+                {{ range first 3 . }}
+                <a href="{{ . }}" target="_blank"><img src="{{ . }}"></a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+            <!-- 底部导航 -->
+            <div class="post-navigation">
+                <div class="nav-links">
+                    {{ with .NextInSection }}
+                    <a href="{{ .RelPermalink }}" class="nav-prev">&lt; {{ .Title }}</a>
+                    {{ else }}
+                    <span class="nav-prev disabled">&lt; 上一篇</span>
+                    {{ end }}
+
+                    <a href="/" class="nav-top">|　博客首页　|</a>
+
+                    {{ with .PrevInSection }}
+                    <a href="{{ .RelPermalink }}" class="nav-next">{{ .Title }} &gt;</a>
+                    {{ else }}
+                    <span class="nav-next disabled">下一篇 &gt;</span>
+                    {{ end }}
+                </div>
+            </div>
+        </article>
+        <script>
+        window.addEventListener('click', e => {
+            let dropboxs = document.getElementsByClassName("dropbox-content");
+            let dropbox_btns = document.getElementsByClassName("dropbox-btn");
+
+            if (dropbox_btns.namedItem(e.target.id) != null) return;
+
+            if(dropboxs.namedItem(e.target.id) == null) {
+                for (let i = 0; i < dropboxs.length; i++) {
+                    dropboxs[i].removeAttribute("visible");
+                }
+            }
+        }, true)
+
+        function toggleDropbox(id) {
+            let dropbox = document.getElementById(id);
+
+            dropbox.toggleAttribute("visible");
+        }
+        </script>
+    </main>
+
+    <!-- 右侧边栏 -->
+    <aside id="right-sidebar">
+        <!-- 最近文章列表 -->
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">最近文章</h3>
+            <div class="sidebar-content">
+                {{ $recent_posts := where .Site.RegularPages "Section" "posts" | first 6 }}
+                {{ range $recent_posts }}
+                <div class="recent-post-item">
+                    <span class="recent-post-date">{{ .Date.Format "01/02" }}</span>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <!-- 标签列表 -->
+        {{ if .Site.Params.sidebar.tags.enable }}
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">标签</h3>
+            <div class="sidebar-content">
+                <ul class="sidebar-tags">
+                {{ $tags_limit := (or (index .Site.Params.sidebar.tags "limit") 10) }}
+                {{ $tags := .Site.Taxonomies.tags.ByCount }}
+                {{ range $tags | first $tags_limit }}
+                    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="tag-count">({{ .Count }})</span></a></li>
+                {{ end }}
+                </ul>
+                {{ if gt (len $tags) $tags_limit }}
+                <div class="more-tags">
+                    <a href="{{ relLangURL (printf "/tags") }}"><b>{{ or (index .Site.Params.sidebar.tags "more-text") "更多标签..." }}</b></a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+    </aside>
+</div>
+{{ end }}

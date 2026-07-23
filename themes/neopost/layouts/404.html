@@ -1,0 +1,55 @@
+{{ define "main" }}
+<div id="content">
+    <main class="main-content">
+        <article class="not-found-page">
+            <h2>404 - 页面未找到</h2>
+            <div class="not-found-content">
+                <p>抱歉，您访问的页面不存在。</p>
+                <p>可能的原因：</p>
+                <ul>
+                    <li>页面已被删除或移动</li>
+                    <li>链接地址输入错误</li>
+                    <li>页面从未存在过</li>
+                </ul>
+                <div class="not-found-actions">
+                    <a href="{{ "/" | relURL }}" class="back-home">← 返回首页</a>
+                    <a href="{{ "/search" | relURL }}" class="go-search">🔍 搜索文章</a>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- 右侧边栏 -->
+    <aside id="right-sidebar">
+        <!-- 最近文章列表 -->
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">最近文章</h3>
+            <div class="sidebar-content">
+                {{ $recent_posts := where .Site.RegularPages "Section" "posts" | first 6 }}
+                {{ range $recent_posts }}
+                <div class="recent-post-item">
+                    <span class="recent-post-date">{{ .Date.Format "01/02" }}</span>
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <!-- 标签列表 -->
+        {{ if .Site.Params.sidebar.tags.enable }}
+        <div class="sidebar-box">
+            <h3 class="sidebar-title">热门标签</h3>
+            <div class="sidebar-content">
+                <ul class="sidebar-tags">
+                {{ $tags_limit := (or (index .Site.Params.sidebar.tags "limit") 10) }}
+                {{ $tags := .Site.Taxonomies.tags.ByCount }}
+                {{ range $tags | first $tags_limit }}
+                    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="tag-count">({{ .Count }})</span></a></li>
+                {{ end }}
+                </ul>
+            </div>
+        </div>
+        {{ end }}
+    </aside>
+</div>
+{{ end }}

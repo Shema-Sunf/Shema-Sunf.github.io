@@ -1,22 +1,63 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>我的博客</title>
-        <link>http://localhost:1313/</link>
-        <description>Recent content on 我的博客</description>
-        <generator>Hugo -- gohugo.io</generator>
-        <language>zh-cn</language>
-        <copyright>© 2026 你的名字</copyright>
-        <lastBuildDate>Sun, 19 Jul 2026 16:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
-            <title>博客使用指南：图片上传和文件下载</title>
-            <link>http://localhost:1313/post/how-to-use-images/</link>
-            <pubDate>Sun, 19 Jul 2026 16:00:00 +0800</pubDate>
-            <guid>http://localhost:1313/post/how-to-use-images/</guid>
-            <description>&lt;h2 id=&#34;图片上传方案&#34;&gt;&lt;a href=&#34;#%e5%9b%be%e7%89%87%e4%b8%8a%e4%bc%a0%e6%96%b9%e6%a1%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;图片上传方案&#xA;&lt;/h2&gt;&lt;p&gt;本博客使用 &lt;strong&gt;GitHub + jsDelivr + PicGo&lt;/strong&gt; 作为图床方案，完全免费且稳定。&lt;/p&gt;&#xA;&lt;h3 id=&#34;方案特点&#34;&gt;&lt;a href=&#34;#%e6%96%b9%e6%a1%88%e7%89%b9%e7%82%b9&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;方案特点&#xA;&lt;/h3&gt;&lt;ul&gt;&#xA;&lt;li&gt;✅ &lt;strong&gt;完全免费&lt;/strong&gt; - GitHub 仓库无限存储&lt;/li&gt;&#xA;&lt;li&gt;✅ &lt;strong&gt;全球 CDN&lt;/strong&gt; - jsDelivr 加速，访问速度快&lt;/li&gt;&#xA;&lt;li&gt;✅ &lt;strong&gt;永久保存&lt;/strong&gt; - 数据存储在 GitHub，不会丢失&lt;/li&gt;&#xA;&lt;li&gt;✅ &lt;strong&gt;一键上传&lt;/strong&gt; - 使用 PicGo 工具，截图后自动上传&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;使用步骤&#34;&gt;&lt;a href=&#34;#%e4%bd%bf%e7%94%a8%e6%ad%a5%e9%aa%a4&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;使用步骤&#xA;&lt;/h3&gt;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;安装 PicGo&lt;/strong&gt; - 从 &lt;a class=&#34;link&#34; href=&#34;https://github.com/Molunerfinn/PicGo/releases&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;&#xA;    &gt;GitHub Releases&lt;/a&gt; 下载安装&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;配置图床&lt;/strong&gt; - 在 PicGo 中设置 GitHub 图床参数&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;上传图片&lt;/strong&gt; - 截图或拖拽图片到 PicGo，自动上传并复制链接&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;插入文章&lt;/strong&gt; - 在 Markdown 中粘贴链接即可&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;示例图片&#34;&gt;&lt;a href=&#34;#%e7%a4%ba%e4%be%8b%e5%9b%be%e7%89%87&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;示例图片&#xA;&lt;/h3&gt;&lt;p&gt;下面是一张示例图片：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img alt=&#34;示例图片&#34; loading=&#34;lazy&#34; sizes=&#34;(max-width: 767px) calc(100vw - 30px), (max-width: 1023px) 700px, (max-width: 1279px) 950px, 1232px&#34; src=&#34;https://cdn.jsdelivr.net/gh/Shema-Sunf/blog-images@main/images/example.png&#34;&gt;&lt;/p&gt;&#xA;&#xA;    &lt;blockquote&gt;&#xA;        &lt;p&gt;提示：实际使用时，将 &lt;code&gt;example.png&lt;/code&gt; 替换为你上传的真实图片文件名。&lt;/p&gt;&#xA;&#xA;    &lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;文件下载功能&#34;&gt;&lt;a href=&#34;#%e6%96%87%e4%bb%b6%e4%b8%8b%e8%bd%bd%e5%8a%9f%e8%83%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;文件下载功能&#xA;&lt;/h2&gt;&lt;p&gt;本博客支持提供文件下载功能。&lt;/p&gt;&#xA;&lt;h3 id=&#34;如何使用&#34;&gt;&lt;a href=&#34;#%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;如何使用&#xA;&lt;/h3&gt;&lt;ol&gt;&#xA;&lt;li&gt;将文件放入博客目录的 &lt;code&gt;static/downloads/&lt;/code&gt; 文件夹&lt;/li&gt;&#xA;&lt;li&gt;在文章中使用 Markdown 链接引用：&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;[&lt;span style=&#34;color:#f92672&#34;&gt;点击下载示例文件&lt;/span&gt;](&lt;span style=&#34;color:#a6e22e&#34;&gt;downloads/example.pdf&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;示例下载&#34;&gt;&lt;a href=&#34;#%e7%a4%ba%e4%be%8b%e4%b8%8b%e8%bd%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;示例下载&#xA;&lt;/h3&gt;&lt;p&gt;📎 &lt;a class=&#34;link&#34; href=&#34;http://localhost:1313/downloads/readme.txt&#34; &gt;点击下载示例文档&lt;/a&gt;&lt;/p&gt;&#xA;&#xA;    &lt;blockquote&gt;&#xA;        &lt;p&gt;提示：上面的链接是一个示例，你需要在 &lt;code&gt;static/downloads/&lt;/code&gt; 目录下放入真实文件才能下载。&lt;/p&gt;&#xA;&#xA;    &lt;/blockquote&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;支持的文件类型&#34;&gt;&lt;a href=&#34;#%e6%94%af%e6%8c%81%e7%9a%84%e6%96%87%e4%bb%b6%e7%b1%bb%e5%9e%8b&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;支持的文件类型&#xA;&lt;/h2&gt;&lt;p&gt;博客支持几乎所有常见的文件类型：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;📄 文档：PDF、DOC、DOCX、TXT、MD&lt;/li&gt;&#xA;&lt;li&gt;🖼️ 图片：JPG、PNG、GIF、SVG、WebP&lt;/li&gt;&#xA;&lt;li&gt;📦 压缩包：ZIP、RAR、7Z、TAR&lt;/li&gt;&#xA;&lt;li&gt;📊 数据：CSV、JSON、XML&lt;/li&gt;&#xA;&lt;li&gt;🎵 音频：MP3、WAV、OGG&lt;/li&gt;&#xA;&lt;li&gt;🎬 视频：MP4、WebM、OGV&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;注意事项&#34;&gt;&lt;a href=&#34;#%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;注意事项&#xA;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;GitHub 单文件限制&lt;/strong&gt; - 通过 GitHub 上传的文件单个不能超过 100MB&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;大文件建议&lt;/strong&gt; - 超过 25MB 的文件建议使用云盘链接（如百度网盘、阿里云盘）&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;版权注意&lt;/strong&gt; - 上传和分享的文件请确保拥有版权或符合开源协议&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;有任何问题，欢迎在下方评论区留言！💬&lt;/p&gt;&#xA;</description>
-        </item><item>
-            <title>Hello World - 我的第一篇博客</title>
-            <link>http://localhost:1313/post/hello-world/</link>
-            <pubDate>Sun, 19 Jul 2026 15:00:00 +0800</pubDate>
-            <guid>http://localhost:1313/post/hello-world/</guid>
-            <description>&lt;h2 id=&#34;欢迎来到我的博客&#34;&gt;&lt;a href=&#34;#%e6%ac%a2%e8%bf%8e%e6%9d%a5%e5%88%b0%e6%88%91%e7%9a%84%e5%8d%9a%e5%ae%a2&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;欢迎来到我的博客！&#xA;&lt;/h2&gt;&lt;p&gt;这是我的第一篇博客文章。我会在这里分享技术心得、生活感悟，以及其他有趣的内容。&lt;/p&gt;&#xA;&lt;h3 id=&#34;博客功能&#34;&gt;&lt;a href=&#34;#%e5%8d%9a%e5%ae%a2%e5%8a%9f%e8%83%bd&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;博客功能&#xA;&lt;/h3&gt;&lt;p&gt;这个博客支持以下功能：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;📝 &lt;strong&gt;文章发布&lt;/strong&gt; - 使用 Markdown 编写，简洁高效&lt;/li&gt;&#xA;&lt;li&gt;💬 &lt;strong&gt;留言评论&lt;/strong&gt; - 基于 Giscus 的评论系统&lt;/li&gt;&#xA;&lt;li&gt;🔍 &lt;strong&gt;全文搜索&lt;/strong&gt; - 快速找到你想要的内容&lt;/li&gt;&#xA;&lt;li&gt;🖼️ &lt;strong&gt;图片展示&lt;/strong&gt; - 支持各种图片格式&lt;/li&gt;&#xA;&lt;li&gt;📱 &lt;strong&gt;响应式设计&lt;/strong&gt; - 在手机和电脑上都有良好体验&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;关于评论系统&#34;&gt;&lt;a href=&#34;#%e5%85%b3%e4%ba%8e%e8%af%84%e8%ae%ba%e7%b3%bb%e7%bb%9f&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;关于评论系统&#xA;&lt;/h3&gt;&lt;p&gt;评论功能使用 &lt;strong&gt;Giscus&lt;/strong&gt;，它基于 GitHub Discussions。这意味着：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;完全免费，没有广告&lt;/li&gt;&#xA;&lt;li&gt;评论数据存储在 GitHub，安全可靠&lt;/li&gt;&#xA;&lt;li&gt;支持 Markdown 格式&lt;/li&gt;&#xA;&lt;li&gt;可以使用 GitHub 账号直接登录评论&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;稍后我会详细说明如何配置评论系统。&lt;/p&gt;&#xA;&lt;h3 id=&#34;图片上传方案&#34;&gt;&lt;a href=&#34;#%e5%9b%be%e7%89%87%e4%b8%8a%e4%bc%a0%e6%96%b9%e6%a1%88&#34; class=&#34;header-anchor&#34;&gt;&lt;/a&gt;图片上传方案&#xA;&lt;/h3&gt;&lt;p&gt;我使用的是 &lt;strong&gt;GitHub + jsDelivr&lt;/strong&gt; 的免费图床方案：&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;将图片上传到 GitHub 仓库&lt;/li&gt;&#xA;&lt;li&gt;通过 jsDelivr CDN 加速访问&lt;/li&gt;&#xA;&lt;li&gt;使用 PicGo 工具可以一键上传&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;这种方式完全免费，而且速度快、稳定性好。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;感谢你的访问，期待在评论区看到你的留言！&lt;/p&gt;&#xA;</description>
-        </item></channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>毒毒糖果铺</title><link>https://shema-sunf.github.io/</link><description>Recent content on 毒毒糖果铺</description><generator>Hugo</generator><language>zh-cn</language><atom:link href="https://shema-sunf.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>博客使用指南：图片上传和文件下载</title><link>https://shema-sunf.github.io/posts/how-to-use-images/</link><pubDate>Sun, 19 Jul 2026 16:00:00 +0800</pubDate><guid>https://shema-sunf.github.io/posts/how-to-use-images/</guid><description>&lt;h2 id="图片上传方案"&gt;图片上传方案&lt;/h2&gt;
+&lt;p&gt;本博客使用 &lt;strong&gt;GitHub + jsDelivr + PicGo&lt;/strong&gt; 作为图床方案，完全免费且稳定。&lt;/p&gt;
+&lt;h3 id="方案特点"&gt;方案特点&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;✅ &lt;strong&gt;完全免费&lt;/strong&gt; - GitHub 仓库无限存储&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;全球 CDN&lt;/strong&gt; - jsDelivr 加速，访问速度快&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;永久保存&lt;/strong&gt; - 数据存储在 GitHub，不会丢失&lt;/li&gt;
+&lt;li&gt;✅ &lt;strong&gt;一键上传&lt;/strong&gt; - 使用 PicGo 工具，截图后自动上传&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="使用步骤"&gt;使用步骤&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;安装 PicGo&lt;/strong&gt; - 从 &lt;a href="https://github.com/Molunerfinn/PicGo/releases"&gt;GitHub Releases&lt;/a&gt; 下载安装&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;配置图床&lt;/strong&gt; - 在 PicGo 中设置 GitHub 图床参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;上传图片&lt;/strong&gt; - 截图或拖拽图片到 PicGo，自动上传并复制链接&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;插入文章&lt;/strong&gt; - 在 Markdown 中粘贴链接即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="示例图片"&gt;示例图片&lt;/h3&gt;
+&lt;p&gt;下面是一张示例图片：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/blog-images@main/images/example.png" alt="示例图片"&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;提示：实际使用时，将 &lt;code&gt;example.png&lt;/code&gt; 替换为你上传的真实图片文件名。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="文件下载功能"&gt;文件下载功能&lt;/h2&gt;
+&lt;p&gt;本博客支持提供文件下载功能。&lt;/p&gt;
+&lt;h3 id="如何使用"&gt;如何使用&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;将文件放入博客目录的 &lt;code&gt;static/downloads/&lt;/code&gt; 文件夹&lt;/li&gt;
+&lt;li&gt;在文章中使用 Markdown 链接引用：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[&lt;span style="color:#f92672"&gt;点击下载示例文件&lt;/span&gt;](&lt;span style="color:#a6e22e"&gt;downloads/example.pdf&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="示例下载"&gt;示例下载&lt;/h3&gt;
+&lt;p&gt;📎 &lt;a href="https://shema-sunf.github.io/downloads/readme.txt"&gt;点击下载示例文档&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hello World - 我的第一篇博客</title><link>https://shema-sunf.github.io/posts/hello-world/</link><pubDate>Sun, 19 Jul 2026 15:00:00 +0800</pubDate><guid>https://shema-sunf.github.io/posts/hello-world/</guid><description>&lt;h2 id="欢迎来到我的博客"&gt;欢迎来到我的博客！&lt;/h2&gt;
+&lt;p&gt;这是我的第一篇博客文章。我会在这里分享技术心得、生活感悟，以及其他有趣的内容。&lt;/p&gt;
+&lt;h3 id="博客功能"&gt;博客功能&lt;/h3&gt;
+&lt;p&gt;这个博客支持以下功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;📝 &lt;strong&gt;文章发布&lt;/strong&gt; - 使用 Markdown 编写，简洁高效&lt;/li&gt;
+&lt;li&gt;💬 &lt;strong&gt;留言评论&lt;/strong&gt; - 基于 Giscus 的评论系统&lt;/li&gt;
+&lt;li&gt;🔍 &lt;strong&gt;全文搜索&lt;/strong&gt; - 快速找到你想要的内容&lt;/li&gt;
+&lt;li&gt;🖼️ &lt;strong&gt;图片展示&lt;/strong&gt; - 支持各种图片格式&lt;/li&gt;
+&lt;li&gt;📱 &lt;strong&gt;响应式设计&lt;/strong&gt; - 在手机和电脑上都有良好体验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="关于评论系统"&gt;关于评论系统&lt;/h3&gt;
+&lt;p&gt;评论功能使用 &lt;strong&gt;Giscus&lt;/strong&gt;，它基于 GitHub Discussions。这意味着：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;完全免费，没有广告&lt;/li&gt;
+&lt;li&gt;评论数据存储在 GitHub，安全可靠&lt;/li&gt;
+&lt;li&gt;支持 Markdown 格式&lt;/li&gt;
+&lt;li&gt;可以使用 GitHub 账号直接登录评论&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;稍后我会详细说明如何配置评论系统。&lt;/p&gt;
+&lt;h3 id="图片上传方案"&gt;图片上传方案&lt;/h3&gt;
+&lt;p&gt;我使用的是 &lt;strong&gt;GitHub + jsDelivr&lt;/strong&gt; 的免费图床方案：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将图片上传到 GitHub 仓库&lt;/li&gt;
+&lt;li&gt;通过 jsDelivr CDN 加速访问&lt;/li&gt;
+&lt;li&gt;使用 PicGo 工具可以一键上传&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这种方式完全免费，而且速度快、稳定性好。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;感谢你的访问，期待在评论区看到你的留言！&lt;/p&gt;</description></item><item><title>mysterious meow</title><link>https://shema-sunf.github.io/posts/new-post/</link><pubDate>Sat, 01 Feb 2025 10:00:00 -0300</pubDate><guid>https://shema-sunf.github.io/posts/new-post/</guid><description>&lt;h2 id="meow"&gt;meow&lt;/h2&gt;
+&lt;p&gt;meow&amp;hellip; meow rawr, meow meow meow!&lt;/p&gt;</description></item></channel></rss>
