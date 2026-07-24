@@ -2,7 +2,7 @@
 <div id="content">
     <!-- 左侧：主要内容区域 -->
     <main class="main-content">
-        <article>
+        <article id="post-content" data-post-url="{{ .RelPermalink }}">
             {{- if (index .Params "table-of-contents") }}
             <div id="post-toc-mobile">
                 <button id="post-toc-btn" class="dropbox-btn" onclick="toggleDropbox('post-toc')" >☰</button>
@@ -13,12 +13,12 @@
             {{ end }}
             <h2>{{ .Title }}</h2>
             {{ $tags := .Params.tags }}
-            tags:
+            标签|
             {{ range $index, $tag := .Params.tags }}
-            <a href="{{ relLangURL (printf "/tags/%s" $tag) }}">{{ $tag }}</a>{{ if ne $index (sub ($tags | len) 1) }},{{ end }}
+            <a href="javascript:void(0)" class="tag-link" data-tag="{{ $tag }}" onclick="navigateToTag('{{ $tag }}')">{{ $tag }}</a>{{ if ne $index (sub ($tags | len) 1) }} ×{{ end }}
             {{ end }}
             <div class="post-header">
-                @{{ .Params.author }} <span class="timestamp">{{ .Date.Format "2006/01/02" }}</span>
+                @{{ .Params.author }}
                 {{ if .GitInfo }}
                 {{ if ne .Date.Year .GitInfo.AuthorDate.Year }}
                 <span class="last-updated">（最后更新: {{ .GitInfo.AuthorDate.Format "2006/01/02" }}）</span>
@@ -30,6 +30,7 @@
                 {{ else if ne .Date .Lastmod }}
                 <span class="last-updated">（最后更新: {{ .Lastmod.Format "2006/01/02" }}）</span>
                 {{ end }}
+                <span class="timestamp">{{ .Date.Format "2006/01/02" }}</span>
             </div>
             <div class="post-content">
                 {{ .Content | safeHTML }}
@@ -43,20 +44,20 @@
             {{ end }}
 
             <!-- 底部导航 -->
-            <div class="post-navigation">
-                <div class="nav-links">
+            <div class="post-navigation" id="post-navigation">
+                <div class="nav-links" id="nav-links">
                     {{ with .NextInSection }}
-                    <a href="{{ .RelPermalink }}" class="nav-prev">&lt; {{ .Title }}</a>
+                    <a href="{{ .RelPermalink }}" class="nav-prev" data-nav="prev">&lt; {{ .Title }}</a>
                     {{ else }}
-                    <span class="nav-prev disabled">&lt; 上一篇</span>
+                    <span class="nav-prev disabled" data-nav="prev">&lt; 上一篇</span>
                     {{ end }}
 
-                    <a href="/" class="nav-top">|　博客首页　|</a>
+                    <a href="#" class="nav-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">|　TOP　|</a>
 
                     {{ with .PrevInSection }}
-                    <a href="{{ .RelPermalink }}" class="nav-next">{{ .Title }} &gt;</a>
+                    <a href="{{ .RelPermalink }}" class="nav-next" data-nav="next">{{ .Title }} &gt;</a>
                     {{ else }}
-                    <span class="nav-next disabled">下一篇 &gt;</span>
+                    <span class="nav-next disabled" data-nav="next">下一篇 &gt;</span>
                     {{ end }}
                 </div>
             </div>
@@ -77,25 +78,166 @@
 
         function toggleDropbox(id) {
             let dropbox = document.getElementById(id);
-
             dropbox.toggleAttribute("visible");
+        }
+
+        // 当前选中的tag
+        let currentTag = null;
+        // 展开状态
+        let isExpanded = false;
+        // 当前显示的文章列表（用于展开功能）
+        let currentPosts = [];
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 检查URL参数是否有tag
+            const urlParams = new URLSearchParams(window.location.search);
+            const tagFromUrl = urlParams.get('tag');
+            
+            if (tagFromUrl && window.blogData.tags[tagFromUrl]) {
+                // 如果有tag参数，显示该tag的文章列表并更新导航
+                currentTag = tagFromUrl;
+                showTagPosts(tagFromUrl);
+                highlightCurrentTag(tagFromUrl);
+                updateNavigationForTag(tagFromUrl);
+            } else {
+                // 否则显示“博客”文章
+                showTagPosts('博客');
+            }
+        });
+
+        // 跳转到指定tag的最新文章
+        function navigateToTag(tag) {
+            const tagData = window.blogData.tags[tag];
+            if (tagData && tagData.latestUrl) {
+                // 跳转到最新文章，带上tag参数
+                window.location.href = tagData.latestUrl + '?tag=' + encodeURIComponent(tag);
+            }
+        }
+
+        // 显示最近文章
+        function showRecentPosts() {
+            currentTag = null;
+            isExpanded = false;
+            document.getElementById('sidebar-title').textContent = '最近';
+            const posts = window.blogData.posts.slice(0, 5);
+            currentPosts = posts;
+            renderPostList(posts, false);
+            document.getElementById('expand-toggle').style.display = 'none';
+        }
+
+        // 显示指定tag的文章列表（包括当前文章）
+        function showTagPosts(tag) {
+            currentTag = tag;
+            isExpanded = false;
+            document.getElementById('sidebar-title').textContent = `标签: ${tag}`;
+            
+            // 包含当前文章
+            const posts = window.blogData.posts.filter(p => 
+                p.tags && p.tags.includes(tag)
+            );
+            
+            currentPosts = posts;
+            
+            // 如果有超过5篇文章，显示展开按钮
+            const hasMore = posts.length > 5;
+            document.getElementById('expand-toggle').style.display = hasMore ? 'block' : 'none';
+            
+            renderPostList(posts, !isExpanded);
+        }
+
+        // 展开/收起
+        function toggleExpand() {
+            isExpanded = !isExpanded;
+            renderPostList(currentPosts, !isExpanded);
+            
+            const toggleLink = document.querySelector('#expand-toggle a');
+            toggleLink.textContent = isExpanded ? '收起...' : '展开更多...';
+        }
+
+        // 更新导航链接为tag模式
+        function updateNavigationForTag(tag) {
+            const currentPost = window.blogData.currentPost;
+            const taggedPosts = window.blogData.posts.filter(p => 
+                p.tags && p.tags.includes(tag)
+            );
+            const currentIndex = taggedPosts.findIndex(p => p.url === currentPost.url);
+            
+            const prevPost = taggedPosts[currentIndex - 1];
+            const nextPost = taggedPosts[currentIndex + 1];
+            
+            const navContainer = document.getElementById('nav-links');
+            
+            let prevHtml, nextHtml;
+            const tagParam = '?tag=' + encodeURIComponent(tag);
+            
+            if (prevPost) {
+                prevHtml = `<a href="${prevPost.url}${tagParam}" class="nav-prev" data-nav="prev">&lt; ${prevPost.title}</a>`;
+            } else {
+                prevHtml = `<span class="nav-prev disabled" data-nav="prev">&lt; 上一篇</span>`;
+            }
+            
+            if (nextPost) {
+                nextHtml = `<a href="${nextPost.url}${tagParam}" class="nav-next" data-nav="next">${nextPost.title} &gt;</a>`;
+            } else {
+                nextHtml = `<span class="nav-next disabled" data-nav="next">下一篇 &gt;</span>`;
+            }
+            
+            navContainer.innerHTML = `
+                ${prevHtml}
+                    <a href="#" class="nav-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">|　TOP　|</a>
+                ${nextHtml}
+            `;
+        }
+
+        // 高亮当前选中的tag
+        function highlightCurrentTag(tag) {
+            const tagLinks = document.querySelectorAll('#sidebar-tags-list a');
+            tagLinks.forEach(link => {
+                if (link.dataset.tag === tag) {
+                    link.classList.add('current-tag');
+                } else {
+                    link.classList.remove('current-tag');
+                }
+            });
+        }
+
+        // 渲染文章列表
+        function renderPostList(posts, limit5) {
+            const container = document.getElementById('dynamic-sidebar-content');
+            const currentPostUrl = window.blogData.currentPost.url;
+            
+            if (posts.length === 0) {
+                container.innerHTML = '<div class="no-posts">暂无相关文章</div>';
+                return;
+            }
+            
+            const displayPosts = limit5 ? posts.slice(0, 5) : posts;
+            
+            container.innerHTML = displayPosts.map(post => {
+                const isCurrent = post.url === currentPostUrl;
+                return `
+                <div class="recent-post-item${isCurrent ? ' current-post' : ''}">
+                <span class="recent-post-date">${post.date.substring(2, 4)}/${post.date.substring(5, 7)}/${post.date.substring(8, 10)}</span>
+                    <a href="${post.url}${currentTag ? '?tag=' + encodeURIComponent(currentTag) : ''}"${isCurrent ? ' class="current-post-link"' : ''}>${post.title}${isCurrent ? '' : ''}</a>
+                </div>
+            `}).join('');
         }
         </script>
     </main>
 
     <!-- 右侧边栏 -->
     <aside id="right-sidebar">
-        <!-- 最近文章列表 -->
-        <div class="sidebar-box">
-            <h3 class="sidebar-title">最近文章</h3>
-            <div class="sidebar-content">
-                {{ $recent_posts := where .Site.RegularPages "Section" "posts" | first 6 }}
-                {{ range $recent_posts }}
-                <div class="recent-post-item">
-                    <span class="recent-post-date">{{ .Date.Format "01/02" }}</span>
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </div>
-                {{ end }}
+        <!-- 同月文章 -->
+        <div class="sidebar-box" id="dynamic-sidebar-box">
+            <div class="sidebar-header">
+                <h3 class="sidebar-title" id="sidebar-title">同月文章</h3>
+            </div>
+            <div class="sidebar-content" id="dynamic-sidebar-content">
+                <!-- 动态内容 -->
+            </div>
+            <div class="expand-toggle" id="expand-toggle" style="display: none;">
+                <a href="javascript:void(0)" onclick="toggleExpand()">展开更多...</a>
             </div>
         </div>
 
@@ -104,18 +246,43 @@
         <div class="sidebar-box">
             <h3 class="sidebar-title">标签</h3>
             <div class="sidebar-content">
-                <ul class="sidebar-tags">
-                {{ $tags_limit := (or (index .Site.Params.sidebar.tags "limit") 10) }}
-                {{ $tags := .Site.Taxonomies.tags.ByCount }}
-                {{ range $tags | first $tags_limit }}
-                    <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="tag-count">({{ .Count }})</span></a></li>
+                <ul class="sidebar-tags" id="sidebar-tags-list">
+                {{/* 获取最近1篇博客 */}}
+                {{ $recentPosts := first 1 (where .Site.RegularPages "Section" "posts") }}
+                {{/* 收集最近1篇博客的标签 */}}
+                {{ $recentTags := slice }}
+                {{ range $recentPosts }}
+                    {{ range .Params.tags }}
+                        {{ if not (in $recentTags .) }}
+                            {{ $recentTags = $recentTags | append . }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+                {{/* 获取所有标签按数量排序 */}}
+                {{ $allTagsByCount := .Site.Taxonomies.tags.ByCount }}
+                {{/* 筛选出最近1篇的标签，按数量排序 */}}
+                {{ $newTags := slice }}
+                {{ range $allTagsByCount }}
+                    {{ if (in $recentTags .Page.Title) }}
+                        {{ $newTags = $newTags | append . }}
+                    {{ end }}
+                {{ end }}
+                {{/* 筛选出其他标签，按数量排序 */}}
+                {{ $otherTags := slice }}
+                {{ range $allTagsByCount }}
+                    {{ if not (in $recentTags .Page.Title) }}
+                        {{ $otherTags = $otherTags | append . }}
+                    {{ end }}
+                {{ end }}
+                {{/* 显示最近1篇的标签（带New!!标记） */}}
+                {{ range $newTags }}
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="{{ .Page.Title }}" onclick="navigateToTag('{{ .Page.Title }}')">{{ .Page.Title }}<span class="tag-count">({{ .Count }})</span> </a></li>
+                {{ end }}
+                {{/* 显示其他标签 */}}
+                {{ range $otherTags }}
+                    <li><a href="javascript:void(0)" data-tag="{{ .Page.Title }}" onclick="navigateToTag('{{ .Page.Title }}')">{{ .Page.Title }} <span class="tag-count">({{ .Count }})</span></a></li>
                 {{ end }}
                 </ul>
-                {{ if gt (len $tags) $tags_limit }}
-                <div class="more-tags">
-                    <a href="{{ relLangURL (printf "/tags") }}"><b>{{ or (index .Site.Params.sidebar.tags "more-text") "更多标签..." }}</b></a>
-                </div>
-                {{ end }}
             </div>
         </div>
         {{ end }}

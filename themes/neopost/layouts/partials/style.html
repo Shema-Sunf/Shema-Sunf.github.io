@@ -380,7 +380,7 @@ a:hover {
     padding: 0.6em 1em;
     font-size: 0.95em;
     border-bottom: 2px solid var(--border-color);
-    text-align: center;
+    text-align: left;
 }
 
 .sidebar-content {
@@ -469,6 +469,51 @@ ul.sidebar-tags {
     color: var(--special-text-color);
     font-size: 0.85em;
     opacity: 0.7;
+}
+
+/* 当前选中的tag高亮样式 */
+.sidebar-tags li a.current-tag {
+    /*color: var(--accent-color);
+    border-radius: 0.3em;
+    margin: 0em -0.5em;
+    background-color: var(--select-color);
+    padding: 0.2em 0.5em;*/
+    font-weight: bold;
+}
+
+/* 当前阅读的文章高亮样式 */
+.recent-post-item.current-post {
+    /*background-color: var(--select-color);
+    margin: -0.3em -0.5em;
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;*/
+    font-weight: bold;
+}
+
+.recent-post-item.current-post .recent-post-date {
+    background-color: var(--accent-color);
+    color: var(--bg-color2);
+    font-weight: normal;
+}
+
+.recent-post-item a.current-post-link {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* New!! 标记样式 */
+.new-badge {
+    background-color: var(--accent-color);
+    color: var(--bg-color2);
+    font-size: 0.7em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.3em;
+    margin-left: 0em;
+    font-weight: normal;
+}
+
+.sidebar-tags li.new-tag a {
+    color: var(--accent-color);
 }
 
 .more-tags {
@@ -622,6 +667,63 @@ ul.sidebar-tags {
     border-color: var(--accent-color);
 }
 
+/* 动态侧边栏样式 */
+.sidebar-header {
+    /*display: flex;*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6em 1em;
+    background-color: var(--bg-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.sidebar-header .sidebar-title {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.month-selector select {
+    padding: 0.2em 0.5em;
+    border: 1px solid var(--border-color);
+    border-radius: 0.3em;
+    background-color: var(--bg-color2);
+    color: var(--text-color);
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.month-selector select:hover {
+    border-color: var(--accent-color);
+}
+
+.expand-toggle {
+    text-align: center;
+    padding: 0.5em;
+    border-top: 1px dashed var(--border-color);
+}
+
+.expand-toggle a {
+    color: var(--special-text-color);
+    text-decoration: none;
+    font-size: 0.85em;
+}
+
+.expand-toggle a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.no-posts {
+    text-align: center;
+    color: var(--special-text-color);
+    padding: 1em;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
 /* 底部导航样式 */
 .post-navigation {
     margin-top: 1.5em;
@@ -675,6 +777,7 @@ ul.sidebar-tags {
     font-size: 0.85em;
     font-weight: normal;
     opacity: 0.8;
+    float: right
 }
 
 main {
@@ -700,6 +803,7 @@ article {
     border: 2px solid var(--border-color);
     border-radius: .3em;
     margin-bottom: 1em;
+    margin-top: 1em;
     box-shadow: var(--post-shadow-color) 5px 5px;
 }
 article img {

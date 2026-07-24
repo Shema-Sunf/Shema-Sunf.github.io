@@ -32,7 +32,42 @@
     </nav>
 <main>
     {{ block "main" . }}{{ end }}
-    {{ if .Param "nextprev" }}{{ partial "nextprev.html" . }}{{ end }}
 </main>
+
+<!-- 全局数据输出 -->
+<script>
+window.blogData = {
+    posts: [
+        {{ range $i, $p := where .Site.RegularPages "Section" "posts" }}
+        {
+            title: {{ $p.Title | jsonify | safeJS }},
+            url: {{ $p.RelPermalink | jsonify | safeJS }},
+            date: "{{ $p.Date.Format "2006-01-02" }}",
+            year: {{ $p.Date.Year }},
+            month: {{ $p.Date.Month }},
+            tags: {{ $p.Params.tags | jsonify | safeJS }}
+        }{{ if ne (add $i 1) (len (where $.Site.RegularPages "Section" "posts")) }},{{ end }}
+        {{ end }}
+    ],
+    currentPost: {
+        title: {{ .Title | jsonify | safeJS }},
+        url: {{ .RelPermalink | jsonify | safeJS }},
+        date: "{{ .Date.Format "2006-01-02" }}",
+        year: {{ .Date.Year }},
+        month: {{ .Date.Month }},
+        tags: {{ .Params.tags | jsonify | safeJS }}
+    },
+    isHomePage: {{ .IsHome }},
+    tags: {
+        {{ range $i, $tag := .Site.Taxonomies.tags.Alphabetical }}
+        {{ $tagName := $tag.Page.Title }}
+        {{ $tagName | jsonify | safeJS }}: {
+            latestUrl: {{ (index $tag.Pages 0).RelPermalink | jsonify | safeJS }},
+            count: {{ $tag.Count }}
+        }{{ if ne (add $i 1) (len $.Site.Taxonomies.tags) }},{{ end }}
+        {{ end }}
+    }
+};
+</script>
 </body>
 </html>

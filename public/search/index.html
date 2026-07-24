@@ -385,7 +385,7 @@ a:hover {
     padding: 0.6em 1em;
     font-size: 0.95em;
     border-bottom: 2px solid var(--border-color);
-    text-align: center;
+    text-align: left;
 }
 
 .sidebar-content {
@@ -474,6 +474,44 @@ ul.sidebar-tags {
     color: var(--special-text-color);
     font-size: 0.85em;
     opacity: 0.7;
+}
+
+ 
+.sidebar-tags li a.current-tag {
+     
+    font-weight: bold;
+}
+
+ 
+.recent-post-item.current-post {
+     
+    font-weight: bold;
+}
+
+.recent-post-item.current-post .recent-post-date {
+    background-color: var(--accent-color);
+    color: var(--bg-color2);
+    font-weight: normal;
+}
+
+.recent-post-item a.current-post-link {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+ 
+.new-badge {
+    background-color: var(--accent-color);
+    color: var(--bg-color2);
+    font-size: 0.7em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.3em;
+    margin-left: 0em;
+    font-weight: normal;
+}
+
+.sidebar-tags li.new-tag a {
+    color: var(--accent-color);
 }
 
 .more-tags {
@@ -628,6 +666,63 @@ ul.sidebar-tags {
 }
 
  
+.sidebar-header {
+     
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6em 1em;
+    background-color: var(--bg-color);
+    border-bottom: 2px solid var(--border-color);
+}
+
+.sidebar-header .sidebar-title {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.month-selector select {
+    padding: 0.2em 0.5em;
+    border: 1px solid var(--border-color);
+    border-radius: 0.3em;
+    background-color: var(--bg-color2);
+    color: var(--text-color);
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.month-selector select:hover {
+    border-color: var(--accent-color);
+}
+
+.expand-toggle {
+    text-align: center;
+    padding: 0.5em;
+    border-top: 1px dashed var(--border-color);
+}
+
+.expand-toggle a {
+    color: var(--special-text-color);
+    text-decoration: none;
+    font-size: 0.85em;
+}
+
+.expand-toggle a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.no-posts {
+    text-align: center;
+    color: var(--special-text-color);
+    padding: 1em;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+ 
 .post-navigation {
     margin-top: 1.5em;
     padding: 1em;
@@ -680,6 +775,7 @@ ul.sidebar-tags {
     font-size: 0.85em;
     font-weight: normal;
     opacity: 0.8;
+    float: right
 }
 
 main {
@@ -705,6 +801,7 @@ article {
     border: 2px solid var(--border-color);
     border-radius: .3em;
     margin-bottom: 1em;
+    margin-top: 1em;
     box-shadow: var(--post-shadow-color) 5px 5px;
 }
 article img {
@@ -964,7 +1061,81 @@ pre {
     </nav>
 <main>
     
-    
 </main>
+
+
+<script>
+window.blogData = {
+    posts: [
+        
+        {
+            title: "Hello World - 我的第一篇博客",
+            url: "/posts/hello-world/",
+            date: "2026-07-19",
+            year:  2026 ,
+            month: "July",
+            tags: ["开始","博客","测试"]
+        },
+        
+        {
+            title: "博客使用指南：图片上传和文件下载",
+            url: "/posts/how-to-use-images/",
+            date: "2026-07-18",
+            year:  2026 ,
+            month: "July",
+            tags: ["图床","PicGo","使用指南","测试"]
+        }
+        
+    ],
+    currentPost: {
+        title: "搜索",
+        url: "/search/",
+        date: "0001-01-01",
+        year:  1 ,
+        month: "January",
+        tags: null
+    },
+    isHomePage:  false ,
+    tags: {
+        
+        
+        "PicGo": {
+            latestUrl: "/posts/how-to-use-images/",
+            count:  1 
+        },
+        
+        
+        "使用指南": {
+            latestUrl: "/posts/how-to-use-images/",
+            count:  1 
+        },
+        
+        
+        "博客": {
+            latestUrl: "/posts/hello-world/",
+            count:  1 
+        },
+        
+        
+        "图床": {
+            latestUrl: "/posts/how-to-use-images/",
+            count:  1 
+        },
+        
+        
+        "开始": {
+            latestUrl: "/posts/hello-world/",
+            count:  1 
+        },
+        
+        
+        "测试": {
+            latestUrl: "/posts/hello-world/",
+            count:  2 
+        }
+        
+    }
+};
+</script>
 </body>
 </html>

@@ -11,10 +11,6 @@
                     <li>链接地址输入错误</li>
                     <li>页面从未存在过</li>
                 </ul>
-                <div class="not-found-actions">
-                    <a href="{{ "/" | relURL }}" class="back-home">← 返回首页</a>
-                    <a href="{{ "/search" | relURL }}" class="go-search">🔍 搜索文章</a>
-                </div>
             </div>
         </article>
     </main>
@@ -23,12 +19,12 @@
     <aside id="right-sidebar">
         <!-- 最近文章列表 -->
         <div class="sidebar-box">
-            <h3 class="sidebar-title">最近文章</h3>
+            <h3 class="sidebar-title">最近</h3>
             <div class="sidebar-content">
                 {{ $recent_posts := where .Site.RegularPages "Section" "posts" | first 6 }}
                 {{ range $recent_posts }}
                 <div class="recent-post-item">
-                    <span class="recent-post-date">{{ .Date.Format "01/02" }}</span>
+                <span class="recent-post-date">${post.date.substring(2, 4)}/${post.date.substring(5, 7)}/${post.date.substring(8, 10)}</span>
                     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                 </div>
                 {{ end }}

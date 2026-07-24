@@ -3,6 +3,8 @@ locale: 'zh-cn'
 title: '毒毒糖果铺'
 theme: 'neopost'
 
+# Hugo 会自动生成 tags 页面，但我们不在界面中链接到它
+
 # 文章链接格式
 permalinks:
   posts: "/posts/:contentbasename/"
