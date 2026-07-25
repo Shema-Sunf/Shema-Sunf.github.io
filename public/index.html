@@ -920,6 +920,7 @@ header h1 a:hover {
     border: 1px solid var(--outline-color);
      
     text-decoration: none;
+    border-radius: 0.2em;
 }
 
 .dropbox-content[visible] {
@@ -985,6 +986,117 @@ header h1 a:hover {
 }
 
  
+.post-toc-floating {
+    position: fixed;
+    left: 1em;
+    top: 5rem;
+    z-index: 99;
+}
+
+.post-toc-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-color2);
+    border: 2px solid var(--border-color);
+    color: var(--special-text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: var(--post-shadow-color) 3px 3px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-toc-toggle:hover {
+    background-color: var(--select-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.post-toc-panel {
+    display: none;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 240px;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+}
+
+.post-toc-panel.active {
+    display: block;
+}
+
+.post-toc-panel .sidebar-box {
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+
+.post-toc-panel .sidebar-content {
+    padding: 0.5em 0.8em;
+    max-height: calc(100vh - 12rem);
+    overflow-y: auto;
+}
+
+.post-toc-panel .sidebar-content nav.toc {
+    margin: 0;
+}
+
+.post-toc-panel .sidebar-content nav.toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-toc-panel .sidebar-content nav.toc li {
+    list-style: none;
+    margin: 0.3em 0;
+}
+
+.post-toc-panel .sidebar-content nav.toc a {
+    display: block;
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 0.85em;
+    line-height: 1.5;
+    padding: 0.2em 0;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+.post-toc-panel .sidebar-content nav.toc a:hover {
+    color: var(--accent-color);
+    transform: translateX(3px);
+}
+
+ 
+.post-toc-panel .sidebar-content nav.toc a.toc-level-1 {
+    margin-left: 0;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-2 {
+    margin-left: 0.8em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-3 {
+    margin-left: 1.6em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-4 {
+    margin-left: 2.4em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-5 {
+    margin-left: 3.2em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-6 {
+    margin-left: 4em;
+}
+
+ 
 @media only screen and (max-width: 800px) {
     #content {
         flex-wrap: wrap;
@@ -1027,12 +1139,15 @@ header h1 a:hover {
         padding: .3em 1em;
     }
 
-    #single-post > .table-of-contents.sidebar {
-        display: none;
+     
+    .post-toc-floating {
+        left: 0.5em;
+        top: 4rem;
     }
 
-    #single-post > article > #post-toc-mobile {
-        display: inline;
+    .post-toc-panel {
+        left: 45px;
+        width: 200px;
     }
 }
 
@@ -1063,63 +1178,163 @@ pre {
 <main>
     
     
+
+    
+    
+
     <div id="content">
+    
+    
+    <div id="post-toc-floating" class="post-toc-floating">
+        <button id="post-toc-toggle" class="post-toc-toggle" onclick="toggleTocPanel()" title="目录">
+            <span class="toc-icon">☰</span>
+        </button>
+        <div id="post-toc-panel" class="post-toc-panel">
+            <div class="sidebar-box">
+                <h3 class="sidebar-title">目录</h3>
+                <div class="sidebar-content">
+                    
+
+  <nav class="toc">
+  <ul>
+
+      <li>
+        <a href="/posts/20260725/#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2" class="toc-item toc-level-1">
+          
+          
+          
+          1.
+           写在前面
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%881719%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          2.
+           7月17~19日
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%8820%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          3.
+           7月20日
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%8821%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          4.
+           7月21日
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%8822%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          5.
+           7月22日
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%8823%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          6.
+           7月23日
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%8824%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          7.
+           7月24日
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20260725/#7%e6%9c%8825%e6%97%a5" class="toc-item toc-level-1">
+          
+          
+          
+          8.
+           7月25日
+        </a>
+      </li>
+  </ul>
+  </nav>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
     
     <main class="main-content">
     
-    
-    
-        <article id="post-content" data-post-url="/posts/hello-world/">
-            <h2><a href="/posts/hello-world/">Hello World - 我的第一篇博客</a></h2>
+        <article id="post-content" data-post-url="/posts/20260725/">
+            <h2><a href="/posts/20260725/">日喀则山南考察随记</a></h2>
             
             标签|
             
-            <a href="javascript:void(0)" class="tag-link" data-tag="开始" onclick="filterByTag('开始')">开始</a> ×
-            
             <a href="javascript:void(0)" class="tag-link" data-tag="博客" onclick="filterByTag('博客')">博客</a> ×
             
-            <a href="javascript:void(0)" class="tag-link" data-tag="测试" onclick="filterByTag('测试')">测试</a>
+            <a href="javascript:void(0)" class="tag-link" data-tag="学业" onclick="filterByTag('学业')">学业</a> ×
+            
+            <a href="javascript:void(0)" class="tag-link" data-tag="游记" onclick="filterByTag('游记')">游记</a>
             
             <div class="post-header">
                 @毒毒味硬糖
                 
-                
-                <span class="last-updated">（最后更新: 2026/07/24）</span>
-                
-                
-                <span class="timestamp">2026/07/19</span>
+                <span class="timestamp">2026/07/25</span>
             </div>
             <div class="post-content">
-                <h2 id="欢迎来到我的博客">欢迎来到我的博客！</h2>
-<p>这是我的第一篇博客文章。我会在这里分享技术心得、生活感悟，以及其他有趣的内容。</p>
-<h3 id="博客功能">博客功能</h3>
-<p>这个博客支持以下功能：</p>
-<ul>
-<li>📝 <strong>文章发布</strong> - 使用 Markdown 编写，简洁高效</li>
-<li>💬 <strong>留言评论</strong> - 基于 Giscus 的评论系统</li>
-<li>🔍 <strong>全文搜索</strong> - 快速找到你想要的内容</li>
-<li>🖼️ <strong>图片展示</strong> - 支持各种图片格式</li>
-<li>📱 <strong>响应式设计</strong> - 在手机和电脑上都有良好体验</li>
-</ul>
-<h3 id="关于评论系统">关于评论系统</h3>
-<p>评论功能使用 <strong>Giscus</strong>，它基于 GitHub Discussions。这意味着：</p>
-<ul>
-<li>完全免费，没有广告</li>
-<li>评论数据存储在 GitHub，安全可靠</li>
-<li>支持 Markdown 格式</li>
-<li>可以使用 GitHub 账号直接登录评论</li>
-</ul>
-<p>稍后我会详细说明如何配置评论系统。</p>
-<h3 id="图片上传方案">图片上传方案</h3>
-<p>我使用的是 <strong>GitHub + jsDelivr</strong> 的免费图床方案：</p>
-<ol>
-<li>将图片上传到 GitHub 仓库</li>
-<li>通过 jsDelivr CDN 加速访问</li>
-<li>使用 PicGo 工具可以一键上传</li>
-</ol>
-<p>这种方式完全免费，而且速度快、稳定性好。</p>
-<hr>
-<p>感谢你的访问，期待在评论区看到你的留言！</p>
+                <h2 id="写在前面">写在前面</h2>
+<p>虽然也是早有想法，但本来是想着等考察回来再慢慢搭博客写文章之类的，不过因为途中意外地比想象中更有空，再加上本来也有写考察笔记的打算，所以就手痒难耐地开始（使唤AI）写网页改样式，折腾了半天打出来这么个型。该说原本觉得个人博客是很geek的事情，但是现在像我这样的三脚猫也能心血来潮搭一个玩玩，好像就有一种技术下放礼崩乐坏的悲伤感油然而生了。</p>
+<p>不过也就是这么一说，对于今天的我来说大概也只是好事。我记得几年前还在读大一大二的时候也突然有过想开个人博客的冲动，那个时候虽然已经有了LLM，不过像ChatGPT这样的早鸟也还很笨拙，不说编程这样的强推理性工作，连最基本的语言处理都做不好，于是当时就被劝退了，退而求其次找了一个（现在我已经忘记了的）免费博客网站。不过好消息是，那次我记得是煞有介事地用中英双语发了几条，然后就因为实在不知道该写什么，以及每写一篇都要掉头发想怎么翻译而草草收场了……该说挺符合我的风格的。</p>
+<p>过了这么好几年又想起来要鼓捣这个，一方面是早些时候跟朋友看霓虹人博客（和朋友自己的博客）又让我回忆起了当年天天家访各种古早博客的感慨，另一方面也是有了一种“确实会有些可发在博客上的东西”的想法。不过说实话，博客确实还是非常强烈地有着“个人性”的东西，或者说其存在本身就是一种自我主张。其实这一点现在也还在让我有一点纠结。比如我还没有写的About页面…想来想去连要放什么头像都不知道，也完全没有什么介绍自己的头绪。或许等回去了会因为这个契机，第一次设计自己的角色…也说不定？毕竟“毒毒味硬糖”本来只是一个<strong>ID</strong>，要成为某种<strong>身份</strong>的话，总不能一直顶着DANMAKAI角色的头像了，这个是犯罪吧，是说。</p>
+<p>总之，现在倒是不用考虑这些，等我回去应该都要8月中旬了。不过，就像上面说的，博客倒是打算先写起来。也是好久好久没有写过这样的文字了，那些自我检讨式的想法我是写在X岛的日记串的，从半公开的形式上来说和博客有点像，但是其主旨绝对是完全相反。所以仔细想想，其实上次怀着这种心情写东西还真的是高中时候记日记。如果能招来那种激情的话，也许倒也不坏。</p>
+<p>最后，说回这篇博客本身，我应该不会写得像考察笔记那样认真（所以题名叫做“随记”），估计会以零碎的感想为主。25号前是回忆。</p>
+<h2 id="7月1719日">7月17~19日</h2>
+<p>考察正式出发的日期是20号，我到拉萨是18号晚，坐上火车则是17号中午。因为考察的行程也算是临时通知，原本是打算在成都上完课先回一趟杭州，还在想着会不会统一订机票飞过去之类，不过最后这些想法都没有应验，决定直接从成都出发进藏了。不过也是托了这个福，在成都算是休息了几天。（虽然原本是打算花这段时间去一趟邛崃，再转一下市内的几个点的……）</p>
+<p>坐车进藏的途中没有什么特别的反应，备了蒙脱石散午时茶之类的也没太用上（倒是地塞米松吃了好几天，我现在也不知道到底有没有效果…），或许也是因为坐火车海拔上得慢的关系。17号晚上到西宁换乘，呼吸着冷冽的空气感觉特别兴奋，有一种远途旅行的错觉（可能也不是错觉），然后马上就坐上车，大概在上铺躺了一整天。路上百无聊赖，就一直在想给VVtZ做同人STG的事情…这个大概也难得是我提起兴致的一次，所以应该会认真地做下去，虽然应该要等到今年年末，VVtZ汉化重置做完一轮才能成为我的主要关注，不过因为关涉的东西很多，无论是素材程序还是弹幕本身，有进度的话都会在这边发，大概。</p>
+<p>总之，做了一天的白日梦之后晚上9点终于到了拉萨住下。估计也是海拔的关系，这几天都睡得很差，18、19晚上都在反复觉醒，梦里也挣扎得很辛苦……不过好在还是年轻耐造，白天居然没有明显的疲劳感，还能跑能跳的非常开心，也多少没怎么受罪，还不错。</p>
+<h2 id="7月20日">7月20日</h2>
+<p>19号晚上考察队伍在饭馆碰了个头，被填了一大堆东西，20号早上就正式出发了。因为提前说了要少带点东西，所以完全是轻装上阵，都没带换洗的衣服，捡了几件必要的，再加上一点药、电子设备，剩下的全都留置原地，就上车了。（不过其实是过去了才发现大家其实基本都带了行李箱…）自藏大出发，翻过岗巴拉山口，沿着羊湖转了一圈，经卡若拉冰川，最后到了康马县。路上起初是草甸河谷，翻过山口之后就慢慢过渡到了更荒凉一些的环境，几乎只能看到冰碛的土原。中途在羊湖观景台停下休息，第一次深刻感受到高原的日照有这么强，即使不抬头望天都有些睁不开眼睛。这里的地形和东南沿海确实是完全不同，在浙江从来没见过这种能够一眼望穿的峰谷地带，之前看照片的时候对尺度没什么概念，实际来过了才意识到，视野确实非常开阔，也总算是能稍微理解这里的聚落形态了。</p>
+<p>下午途径了这次考察的第一个地点——康马县的乃宁曲德寺。大殿不算很大，是只有内殿没有侧殿的布局，这一点能看出建筑年代应该比较早，可能在12世纪左右。殿内四壁的壁画都还比较可辨，不过经过浩劫，左右壁和后壁的都已经严重损毁了，主体部分被粗暴地揭破，前壁的虽然已经非常漫漶，但还能看出大致，可惜被木架橱窗封住，殿内非常昏暗，用手电也照不太清，只能草草看过，让人想起去年在杭州看龙兴寺经幢的情景……不过那次只有四个人围着一个柱子转圈圈，多少还是欣慰很多，这次乌泱泱十几个人在，难免搞得人挤人的，考察确实还是两三个人、三四个人最好。（不过我也没立场说这个话就是了……）</p>
+<p>晚上照例是没睡好，不过这里海拔比拉萨还要高出1000米，所以也是可想。感觉后背像是烙铁一样印在床上，躺一会就是滚滚的热浪；因为氧气稀薄的缘故，肢端稍微压着就开始麻木，于是翻来覆去怎么也睡不着。不过好在同房的师兄也睡得很差（这个叫好在吗…），我在这床折腾总也没算影响到人家。果然上高原高反还是第一道门槛啊。</p>
+<h2 id="7月21日">7月21日</h2>
+<p>上午去了大名鼎鼎的艾旺寺，到的时候寺还没有开门，看气氛似乎是已经不作为宗教场所使用了，门都严实地锁着，也没有香火的痕迹。老师说上次来的时候这里似乎还有一位僧人（尼姑？）打理，不过这次赶来开门的是帽子叔叔。寺内有两个偏殿一个正殿，左偏殿有数尊立像，多为僧装，另外有两尊护法，正殿则是七尊较大的坐佛，中一尊跏趺坐，余皆垂足。右偏殿保存很差，据记载原有一组伏魔塑像，但今天几乎只能看到墙上的木桩了，只有一处蛇尾并双腿的浅浮雕依稀可见。左偏殿和正殿的塑像面相都很有趣，呈方形凸起的下颌部很有特色，衣着也确实是所谓的“兼有汉地与于阗风格”，繁复的团花纹和衣摆的柔秀线条非常漂亮。该说雕塑看照片和亲见完全是天差地别，雕塑的体积感完全是单幅照片的光影无法表现的…当然，素描就要另说了，这正是绘画超胜于摄影术的地方。</p>
+<p>从艾旺寺走出，开了一段路，停在了一片油菜花田边，能望见那边山岗上的残址，说是《梵天佛地》里提到的江普寺址。虽然看着不算很远，但走上去也走了有半个小时，先是趟过浸着水的草地，再跨过一条小溪，爬上山坡才到。草草走过，遗址里已经不存什么细密的痕迹了，只有三四米高的夯土寺墙和几处磊成的屋壁还矗立着，遍地都是荨麻丛，荒草丛生。倒是有同行的人翻到了一块残砖，依稀可以看出粗犷的兽面，只是也不知道是为何、如何出现在这里了。感觉如果有机会，一定要学一学考古测绘的手艺。</p>
+<p>下午驱车去岗巴县的乃甲切木石窟，可惜正在维修，整个山体都用工棚封了起来。晚上到定结县，吃了人生中最悲剧的一盘豆干炒肉盖饭，仍然没睡好，被子里的地狱。</p>
+<h2 id="7月22日">7月22日</h2>
+<p>待补记。</p>
+<h2 id="7月23日">7月23日</h2>
+<p>待补记。</p>
+<h2 id="7月24日">7月24日</h2>
+<p>待补记。</p>
+<h2 id="7月25日">7月25日</h2>
+<p>早上起了个大早吃饭，一起排队去看帕巴寺。寺名帕巴是’phags pa（“圣”）的音译（难得遇到一个我看得懂的……），和布达拉宫那个帕巴拉康是一个字。帕巴拉康供的是圣观音，这里的主供则是赤尊公主带来的释迦像。寺院本身没有什么太过特别的，木构石像粗疏地保存了一些，其余的多半是从劫灰里洗出来的不知真假的东西，倒是外壁的壁画画得挺不错。但是排队是结结实实排了三四个小时，绕着这么一个小寺绕了一圈。唯一值得欣慰的是寺外广场上有一大群灰鸽子，非常壮观。</p>
+<p>下午稍事休息，去看了吉普古如普寺，据说是赤尊公主的迎送队伍汇合，举办婚礼之地，有赤尊公主调理身体、闭关隐修的洞窟——相传莲师也在这里削山成洞隐修过。不过照例也是没什么实质遗存，且算是拜谒过一通。不过话说回来，看来吉隆这个地方作为吐蕃与尼泊尔交界地的属性确实还是很突出的，今天这两处（的传说）就都和赤尊公主相关。毕竟是国境线上，喜马拉雅南麓，这里离尼泊尔本身也非常近。</p>
+<p>晚上吃饭同行老师聊起信仰的话题，倒是意外地有些收获，毕竟这几天一直处在某种（被动的）局外人的身份上，时时觉得格格不入，倒不是信仰之有无的问题，只是觉得若是不发诚心，亦步亦趋地顶礼膜拜，也难免有点好笑。然老师说他也不是见佛便拜，只是行到某些历史悠久的寺庙，念及无数大译师、上师都曾履经此地，心有感应，才会顶礼、供灯、煨桑、献哈达等等。以前很少听有信心的人说这些，这次还确实是第一次听闻，顿时有种豁然开朗感。<strong>导师</strong>的某些行为往日不甚明白，但又不敢去问，听这一席话，就可以理解了。</p>
 
             </div>
             
@@ -1135,7 +1350,7 @@ pre {
                 <a href="#" class="nav-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">|　TOP　|</a>
 
                 
-                <span class="nav-next disabled" data-nav="next">下一篇 &gt;</span>
+                <a href="/posts/hello-world/" class="nav-next" data-nav="next">Hello World - 我的第一篇博客 &gt;</a>
                 
             </div>
         </div>
@@ -1182,6 +1397,67 @@ pre {
                         
                     
                 
+                    
+                        
+                            
+                        
+                    
+                        
+                    
+                        
+                            
+                        
+                    
+                
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                        
+                            
+                        
+                    
+                
+                
+                
+                
+                
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
                 
                 
                 
@@ -1199,24 +1475,27 @@ pre {
                         
                     
                 
-                
-                
-                
+                    
+                        
                     
                 
                     
-                
+                        
                     
                 
                 
                 
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="博客" onclick="navigateToTag('博客')">博客<span class="tag-count">(1)</span> </a></li>
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="博客" onclick="navigateToTag('博客')">博客<span class="tag-count">(2)</span> </a></li>
                 
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="开始" onclick="navigateToTag('开始')">开始<span class="tag-count">(1)</span> </a></li>
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="学业" onclick="navigateToTag('学业')">学业<span class="tag-count">(1)</span> </a></li>
                 
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="测试" onclick="navigateToTag('测试')">测试<span class="tag-count">(1)</span> </a></li>
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="游记" onclick="navigateToTag('游记')">游记<span class="tag-count">(1)</span> </a></li>
                 
                 
+                
+                    <li><a href="javascript:void(0)" data-tag="开始" onclick="navigateToTag('开始')">开始 <span class="tag-count">(1)</span></a></li>
+                
+                    <li><a href="javascript:void(0)" data-tag="测试" onclick="navigateToTag('测试')">测试 <span class="tag-count">(1)</span></a></li>
                 
                 </ul>
             </div>
@@ -1366,23 +1645,21 @@ pre {
         `}).join('');
     }
 
+    
+    function toggleTocPanel() {
+        const panel = document.getElementById('post-toc-panel');
+        panel.classList.toggle('active');
+    }
+
+    
     window.addEventListener('click', e => {
-        let dropboxs = document.getElementsByClassName("dropbox-content");
-        let dropbox_btns = document.getElementsByClassName("dropbox-btn");
+        const panel = document.getElementById('post-toc-panel');
+        const toggle = document.getElementById('post-toc-toggle');
 
-        if (dropbox_btns.namedItem(e.target.id) != null) return;
-
-        if(dropboxs.namedItem(e.target.id) == null) {
-            for (let i = 0; i < dropboxs.length; i++) {
-                dropboxs[i].removeAttribute("visible");
-            }
+        if (panel && toggle && !panel.contains(e.target) && !toggle.contains(e.target)) {
+            panel.classList.remove('active');
         }
     }, true)
-
-    function toggleDropbox(id) {
-        let dropbox = document.getElementById(id);
-        dropbox.toggleAttribute("visible");
-    }
     </script>
 
 </main>
@@ -1391,6 +1668,15 @@ pre {
 <script>
 window.blogData = {
     posts: [
+        
+        {
+            title: "日喀则山南考察随记",
+            url: "/posts/20260725/",
+            date: "2026-07-25",
+            year:  2026 ,
+            month: "July",
+            tags: ["博客","学业","游记"]
+        },
         
         {
             title: "Hello World - 我的第一篇博客",
@@ -1414,8 +1700,73 @@ window.blogData = {
     tags: {
         
         
+        
+        
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+                
+                    
+                
+            
+                
+            
+                
+                    
+                
+            
+        
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+        
+        
         "博客": {
-            latestUrl: "/posts/hello-world/",
+            latestUrl: "/posts/20260725/",
+            count:  2 
+        },
+        
+        
+        "学业": {
+            latestUrl: "/posts/20260725/",
             count:  1 
         },
         
@@ -1429,7 +1780,106 @@ window.blogData = {
         "测试": {
             latestUrl: "/posts/hello-world/",
             count:  1 
+        },
+        
+        
+        "游记": {
+            latestUrl: "/posts/20260725/",
+            count:  1 
         }
+        
+    }
+};
+
+window.weeklyData = {
+    posts: [
+        
+        {
+            title: "2026年第30周 - 七月进行中",
+            url: "/weekly/2026-week-30/",
+            date: "2026-07-20",
+            year:  2026 ,
+            month: "July",
+            tags: ["2026年07月"]
+        },
+        
+        {
+            title: "2026年第5周 - 二月开始",
+            url: "/weekly/2026-week-05/",
+            date: "2026-02-02",
+            year:  2026 ,
+            month: "February",
+            tags: ["2026年02月"]
+        },
+        
+        {
+            title: "2026年第4周 - 月末总结",
+            url: "/weekly/2026-week-04/",
+            date: "2026-01-26",
+            year:  2026 ,
+            month: "January",
+            tags: ["2026年01月"]
+        },
+        
+        {
+            title: "2026年第1周 - 新年计划",
+            url: "/weekly/2026-week-01/",
+            date: "2026-01-05",
+            year:  2026 ,
+            month: "January",
+            tags: ["2026年01月"]
+        }
+        
+    ],
+    currentPost: {
+        title: "",
+        url: "/",
+        date: "0001-01-01",
+        year:  1 ,
+        month: "January",
+        tags: null
+    },
+    isHomePage:  true ,
+    tags: {
+        
+        
+        
+        "2026年01月": {
+            latestUrl: "/weekly/2026-week-04/",
+            count:  2 
+        },
+        
+        
+        
+        
+        "2026年02月": {
+            latestUrl: "/weekly/2026-week-05/",
+            count:  1 
+        },
+        
+        
+        
+        
+        "2026年07月": {
+            latestUrl: "/weekly/2026-week-30/",
+            count:  1 
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 };

@@ -919,6 +919,7 @@ header h1 a:hover {
     border: 1px solid var(--outline-color);
      
     text-decoration: none;
+    border-radius: 0.2em;
 }
 
 .dropbox-content[visible] {
@@ -984,6 +985,117 @@ header h1 a:hover {
 }
 
  
+.post-toc-floating {
+    position: fixed;
+    left: 1em;
+    top: 5rem;
+    z-index: 99;
+}
+
+.post-toc-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-color2);
+    border: 2px solid var(--border-color);
+    color: var(--special-text-color);
+    font-size: 1.2em;
+    cursor: pointer;
+    box-shadow: var(--post-shadow-color) 3px 3px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.post-toc-toggle:hover {
+    background-color: var(--select-color);
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.post-toc-panel {
+    display: none;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    width: 240px;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+}
+
+.post-toc-panel.active {
+    display: block;
+}
+
+.post-toc-panel .sidebar-box {
+    box-shadow: var(--post-shadow-color) 5px 5px;
+}
+
+.post-toc-panel .sidebar-content {
+    padding: 0.5em 0.8em;
+    max-height: calc(100vh - 12rem);
+    overflow-y: auto;
+}
+
+.post-toc-panel .sidebar-content nav.toc {
+    margin: 0;
+}
+
+.post-toc-panel .sidebar-content nav.toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.post-toc-panel .sidebar-content nav.toc li {
+    list-style: none;
+    margin: 0.3em 0;
+}
+
+.post-toc-panel .sidebar-content nav.toc a {
+    display: block;
+    color: var(--link-color);
+    text-decoration: none;
+    font-size: 0.85em;
+    line-height: 1.5;
+    padding: 0.2em 0;
+    transition: all 0.2s ease;
+    word-break: break-word;
+}
+
+.post-toc-panel .sidebar-content nav.toc a:hover {
+    color: var(--accent-color);
+    transform: translateX(3px);
+}
+
+ 
+.post-toc-panel .sidebar-content nav.toc a.toc-level-1 {
+    margin-left: 0;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-2 {
+    margin-left: 0.8em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-3 {
+    margin-left: 1.6em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-4 {
+    margin-left: 2.4em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-5 {
+    margin-left: 3.2em;
+}
+
+.post-toc-panel .sidebar-content nav.toc a.toc-level-6 {
+    margin-left: 4em;
+}
+
+ 
 @media only screen and (max-width: 800px) {
     #content {
         flex-wrap: wrap;
@@ -1026,12 +1138,15 @@ header h1 a:hover {
         padding: .3em 1em;
     }
 
-    #single-post > .table-of-contents.sidebar {
-        display: none;
+     
+    .post-toc-floating {
+        left: 0.5em;
+        top: 4rem;
     }
 
-    #single-post > article > #post-toc-mobile {
-        display: inline;
+    .post-toc-panel {
+        left: 45px;
+        width: 200px;
     }
 }
 
@@ -1069,21 +1184,21 @@ window.blogData = {
     posts: [
         
         {
+            title: "日喀则山南考察随记",
+            url: "/posts/20260725/",
+            date: "2026-07-25",
+            year:  2026 ,
+            month: "July",
+            tags: ["博客","学业","游记"]
+        },
+        
+        {
             title: "Hello World - 我的第一篇博客",
             url: "/posts/hello-world/",
             date: "2026-07-19",
             year:  2026 ,
             month: "July",
             tags: ["开始","博客","测试"]
-        },
-        
-        {
-            title: "博客使用指南：图片上传和文件下载",
-            url: "/posts/how-to-use-images/",
-            date: "2026-07-18",
-            year:  2026 ,
-            month: "July",
-            tags: ["图床","PicGo","使用指南","测试"]
         }
         
     ],
@@ -1099,26 +1214,73 @@ window.blogData = {
     tags: {
         
         
-        "PicGo": {
-            latestUrl: "/posts/how-to-use-images/",
-            count:  1 
-        },
         
         
-        "使用指南": {
-            latestUrl: "/posts/how-to-use-images/",
-            count:  1 
-        },
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+                
+                    
+                
+            
+                
+            
+                
+                    
+                
+            
+        
+        
+        
+        
+            
+        
+            
+        
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
         
         
         "博客": {
-            latestUrl: "/posts/hello-world/",
-            count:  1 
+            latestUrl: "/posts/20260725/",
+            count:  2 
         },
         
         
-        "图床": {
-            latestUrl: "/posts/how-to-use-images/",
+        "学业": {
+            latestUrl: "/posts/20260725/",
             count:  1 
         },
         
@@ -1131,8 +1293,107 @@ window.blogData = {
         
         "测试": {
             latestUrl: "/posts/hello-world/",
-            count:  2 
+            count:  1 
+        },
+        
+        
+        "游记": {
+            latestUrl: "/posts/20260725/",
+            count:  1 
         }
+        
+    }
+};
+
+window.weeklyData = {
+    posts: [
+        
+        {
+            title: "2026年第30周 - 七月进行中",
+            url: "/weekly/2026-week-30/",
+            date: "2026-07-20",
+            year:  2026 ,
+            month: "July",
+            tags: ["2026年07月"]
+        },
+        
+        {
+            title: "2026年第5周 - 二月开始",
+            url: "/weekly/2026-week-05/",
+            date: "2026-02-02",
+            year:  2026 ,
+            month: "February",
+            tags: ["2026年02月"]
+        },
+        
+        {
+            title: "2026年第4周 - 月末总结",
+            url: "/weekly/2026-week-04/",
+            date: "2026-01-26",
+            year:  2026 ,
+            month: "January",
+            tags: ["2026年01月"]
+        },
+        
+        {
+            title: "2026年第1周 - 新年计划",
+            url: "/weekly/2026-week-01/",
+            date: "2026-01-05",
+            year:  2026 ,
+            month: "January",
+            tags: ["2026年01月"]
+        }
+        
+    ],
+    currentPost: {
+        title: "随笔",
+        url: "/categories/%E9%9A%8F%E7%AC%94/",
+        date: "2026-07-19",
+        year:  2026 ,
+        month: "July",
+        tags: null
+    },
+    isHomePage:  false ,
+    tags: {
+        
+        
+        
+        "2026年01月": {
+            latestUrl: "/weekly/2026-week-04/",
+            count:  2 
+        },
+        
+        
+        
+        
+        "2026年02月": {
+            latestUrl: "/weekly/2026-week-05/",
+            count:  1 
+        },
+        
+        
+        
+        
+        "2026年07月": {
+            latestUrl: "/weekly/2026-week-30/",
+            count:  1 
+        },
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
     }
 };

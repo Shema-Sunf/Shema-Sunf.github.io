@@ -59,12 +59,64 @@ window.blogData = {
     },
     isHomePage: {{ .IsHome }},
     tags: {
-        {{ range $i, $tag := .Site.Taxonomies.tags.Alphabetical }}
+        {{/* 收集所有posts中使用的标签 */}}
+        {{ $blogPosts := where .Site.RegularPages "Section" "posts" }}
+        {{ $blogTags := slice }}
+        {{ range $blogPosts }}
+            {{ range .Params.tags }}
+                {{ if not (in $blogTags .) }}
+                    {{ $blogTags = $blogTags | append . }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
+        {{/* 只输出posts中使用的标签 */}}
+        {{ $filteredTags := slice }}
+        {{ range .Site.Taxonomies.tags.Alphabetical }}
+            {{ if (in $blogTags .Page.Title) }}
+                {{ $filteredTags = $filteredTags | append . }}
+            {{ end }}
+        {{ end }}
+        {{ range $i, $tag := $filteredTags }}
         {{ $tagName := $tag.Page.Title }}
         {{ $tagName | jsonify | safeJS }}: {
             latestUrl: {{ (index $tag.Pages 0).RelPermalink | jsonify | safeJS }},
             count: {{ $tag.Count }}
+        }{{ if ne (add $i 1) (len $filteredTags) }},{{ end }}
+        {{ end }}
+    }
+};
+
+window.weeklyData = {
+    posts: [
+        {{ range $i, $p := where .Site.RegularPages "Section" "weekly" }}
+        {
+            title: {{ $p.Title | jsonify | safeJS }},
+            url: {{ $p.RelPermalink | jsonify | safeJS }},
+            date: "{{ $p.Date.Format "2006-01-02" }}",
+            year: {{ $p.Date.Year }},
+            month: {{ $p.Date.Month }},
+            tags: {{ $p.Params.tags | jsonify | safeJS }}
+        }{{ if ne (add $i 1) (len (where $.Site.RegularPages "Section" "weekly")) }},{{ end }}
+        {{ end }}
+    ],
+    currentPost: {
+        title: {{ .Title | jsonify | safeJS }},
+        url: {{ .RelPermalink | jsonify | safeJS }},
+        date: "{{ .Date.Format "2006-01-02" }}",
+        year: {{ .Date.Year }},
+        month: {{ .Date.Month }},
+        tags: {{ .Params.tags | jsonify | safeJS }}
+    },
+    isHomePage: {{ .IsHome }},
+    tags: {
+        {{ range $i, $tag := .Site.Taxonomies.tags.Alphabetical }}
+        {{ $tagName := $tag.Page.Title }}
+        {{ if findRE "^\\d{4}年" $tagName }}
+        {{ $tagName | jsonify | safeJS }}: {
+            latestUrl: {{ (index $tag.Pages 0).RelPermalink | jsonify | safeJS }},
+            count: {{ $tag.Count }}
         }{{ if ne (add $i 1) (len $.Site.Taxonomies.tags) }},{{ end }}
+        {{ end }}
         {{ end }}
     }
 };

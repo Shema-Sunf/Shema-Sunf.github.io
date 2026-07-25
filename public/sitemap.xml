@@ -2,19 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-07-25T22:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2026-07-25T22:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2026-07-25T22:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%AD%A6%E4%B8%9A/</loc>
+    <lastmod>2026-07-25T22:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/20260725/</loc>
+    <lastmod>2026-07-25T22:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E6%B8%B8%E8%AE%B0/</loc>
+    <lastmod>2026-07-25T22:16:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/2026%E5%B9%B407%E6%9C%88/</loc>
+    <lastmod>2026-07-20T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/2026-week-30/</loc>
+    <lastmod>2026-07-20T12:00:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/</loc>
+    <lastmod>2026-07-20T12:00:00+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2026-07-24T10:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/hello-world/</loc>
-    <lastmod>2026-07-24T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-07-24T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-07-24T10:00:00+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2026-07-24T10:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/%E5%BC%80%E5%A7%8B/</loc>
@@ -26,20 +44,20 @@
     <loc>http://localhost:1313/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2026-07-24T10:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/picgo/</loc>
-    <lastmod>2026-07-24T01:50:45+08:00</lastmod>
+    <loc>http://localhost:1313/tags/2026%E5%B9%B402%E6%9C%88/</loc>
+    <lastmod>2026-02-02T12:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</loc>
-    <lastmod>2026-07-24T01:50:45+08:00</lastmod>
+    <loc>http://localhost:1313/weekly/2026-week-05/</loc>
+    <lastmod>2026-02-02T12:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/how-to-use-images/</loc>
-    <lastmod>2026-07-24T01:50:45+08:00</lastmod>
+    <loc>http://localhost:1313/tags/2026%E5%B9%B401%E6%9C%88/</loc>
+    <lastmod>2026-01-26T12:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2026-07-24T01:50:45+08:00</lastmod>
+    <loc>http://localhost:1313/weekly/2026-week-04/</loc>
+    <lastmod>2026-01-26T12:00:00+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2026-07-24T01:50:45+08:00</lastmod>
+    <loc>http://localhost:1313/weekly/2026-week-01/</loc>
+    <lastmod>2026-01-05T12:00:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2026-07-19T16:30:57+08:00</lastmod>

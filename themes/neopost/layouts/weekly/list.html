@@ -11,7 +11,7 @@
     </nav>
     {{ end }}
 
-    {{ $pages := where .Site.RegularPages "Section" "posts" }}
+    {{ $pages := where .Site.RegularPages "Section" "weekly" }}
     {{ $paginator := .Paginate $pages 1 }}
 
     <div id="content">
@@ -94,10 +94,10 @@
 
     <!-- 右侧边栏 -->
     <aside id="right-sidebar">
-        <!-- 最近文章 -->
+        <!-- 同月文章 -->
         <div class="sidebar-box" id="dynamic-sidebar-box">
             <div class="sidebar-header">
-                <h3 class="sidebar-title" id="sidebar-title">最近</h3>
+                <h3 class="sidebar-title" id="sidebar-title">同月文章</h3>
             </div>
             <div class="sidebar-content" id="dynamic-sidebar-content">
                 <!-- 动态内容 -->
@@ -107,59 +107,24 @@
             </div>
         </div>
 
-        <!-- 标签列表 -->
+        <!-- 标签列表（按时间顺序，无New!!标记） -->
         {{ if .Site.Params.sidebar.tags.enable }}
         <div class="sidebar-box">
-            <h3 class="sidebar-title">标签</h3>
+            <h3 class="sidebar-title">时间</h3>
             <div class="sidebar-content">
                 <ul class="sidebar-tags" id="sidebar-tags-list">
-                {{/* 只获取posts部分的文章 */}}
-                {{ $blogPosts := where .Site.RegularPages "Section" "posts" }}
-                {{/* 收集所有posts中使用的标签 */}}
-                {{ $blogTags := slice }}
-                {{ range $blogPosts }}
-                    {{ range .Params.tags }}
-                        {{ if not (in $blogTags .) }}
-                            {{ $blogTags = $blogTags | append . }}
-                        {{ end }}
+                {{/* 获取所有标签并按时间倒序排序 */}}
+                {{ $allTags := .Site.Taxonomies.tags.Alphabetical }}
+                {{/* 筛选出以年份开头的标签（如"2026年"）*/}}
+                {{ $yearTags := slice }}
+                {{ range $allTags }}
+                    {{ $tagName := .Page.Title }}
+                    {{ if findRE "^\\d{4}年" $tagName }}
+                        {{ $yearTags = $yearTags | append . }}
                     {{ end }}
                 {{ end }}
-                {{/* 获取最近1篇博客 */}}
-                {{ $recentPosts := first 1 $blogPosts }}
-                {{/* 收集最近1篇博客的标签 */}}
-                {{ $recentTags := slice }}
-                {{ range $recentPosts }}
-                    {{ range .Params.tags }}
-                        {{ if not (in $recentTags .) }}
-                            {{ $recentTags = $recentTags | append . }}
-                        {{ end }}
-                    {{ end }}
-                {{ end }}
-                {{/* 获取所有标签按数量排序，然后筛选出只在posts中使用的标签 */}}
-                {{ $allTagsByCount := .Site.Taxonomies.tags.ByCount }}
-                {{/* 筛选出属于博客的标签（在$blogTags中的） */}}
-                {{ $filteredTags := slice }}
-                {{ range $allTagsByCount }}
-                    {{ if (in $blogTags .Page.Title) }}
-                        {{ $filteredTags = $filteredTags | append . }}
-                    {{ end }}
-                {{ end }}
-                {{/* 从筛选后的标签中分离出最近标签和其他标签 */}}
-                {{ $newTags := slice }}
-                {{ $otherTags := slice }}
-                {{ range $filteredTags }}
-                    {{ if (in $recentTags .Page.Title) }}
-                        {{ $newTags = $newTags | append . }}
-                    {{ else }}
-                        {{ $otherTags = $otherTags | append . }}
-                    {{ end }}
-                {{ end }}
-                {{/* 显示最近1篇的标签（带New!!标记） */}}
-                {{ range $newTags }}
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="{{ .Page.Title }}" onclick="navigateToTag('{{ .Page.Title }}')">{{ .Page.Title }}<span class="tag-count">({{ .Count }})</span> </a></li>
-                {{ end }}
-                {{/* 显示其他标签 */}}
-                {{ range $otherTags }}
+                {{/* 按时间倒序排序（最新的在前面）*/}}
+                {{ range sort $yearTags "Page.Title" "desc" }}
                     <li><a href="javascript:void(0)" data-tag="{{ .Page.Title }}" onclick="navigateToTag('{{ .Page.Title }}')">{{ .Page.Title }} <span class="tag-count">({{ .Count }})</span></a></li>
                 {{ end }}
                 </ul>
@@ -183,7 +148,7 @@
         const urlParams = new URLSearchParams(window.location.search);
         const tagFromUrl = urlParams.get('tag');
         
-        if (tagFromUrl && window.blogData.tags[tagFromUrl]) {
+        if (tagFromUrl && window.weeklyData.tags[tagFromUrl]) {
             // 如果有tag参数，显示该tag的文章列表并更新导航
             currentTag = tagFromUrl;
             showTagPosts(tagFromUrl);
@@ -197,7 +162,7 @@
 
     // 跳转到指定tag的最新文章
     function navigateToTag(tag) {
-        const tagData = window.blogData.tags[tag];
+        const tagData = window.weeklyData.tags[tag];
         if (tagData && tagData.latestUrl) {
             // 跳转到最新文章，带上tag参数
             window.location.href = tagData.latestUrl + '?tag=' + encodeURIComponent(tag);
@@ -209,7 +174,7 @@
         currentTag = null;
         isExpanded = false;
         document.getElementById('sidebar-title').textContent = '最近';
-        const posts = window.blogData.posts.slice(0, 5);
+        const posts = window.weeklyData.posts.slice(0, 5);
         currentPosts = posts;
         renderPostList(posts, false);
         document.getElementById('expand-toggle').style.display = 'none';
@@ -219,8 +184,8 @@
     function showTagPosts(tag) {
         currentTag = tag;
         isExpanded = false;
-        document.getElementById('sidebar-title').textContent = `标签: ${tag}`;
-        const posts = window.blogData.posts.filter(p => 
+        document.getElementById('sidebar-title').textContent = `${tag}`;
+        const posts = window.weeklyData.posts.filter(p => 
             p.tags && p.tags.includes(tag)
         );
         currentPosts = posts;
@@ -243,8 +208,8 @@
 
     // 更新导航链接为tag模式
     function updateNavigationForTag(tag) {
-        const currentPost = window.blogData.currentPost;
-        const taggedPosts = window.blogData.posts.filter(p => 
+        const currentPost = window.weeklyData.currentPost;
+        const taggedPosts = window.weeklyData.posts.filter(p => 
             p.tags && p.tags.includes(tag)
         );
         const currentIndex = taggedPosts.findIndex(p => p.url === currentPost.url);
@@ -291,7 +256,7 @@
     // 渲染文章列表
     function renderPostList(posts, limit5) {
         const container = document.getElementById('dynamic-sidebar-content');
-        const currentPostUrl = window.blogData.currentPost.url;
+        const currentPostUrl = window.weeklyData.currentPost.url;
         
         if (posts.length === 0) {
             container.innerHTML = '<div class="no-posts">暂无相关文章</div>';
