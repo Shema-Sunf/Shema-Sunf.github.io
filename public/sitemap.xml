@@ -2,17 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-07-29T22:27:20+08:00</lastmod>
+    <loc>http://localhost:1313/weekly/2026-week-32/</loc>
+    <lastmod>2026-08-08T00:51:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/2026%E5%B9%B408%E6%9C%88/</loc>
+    <lastmod>2026-08-08T00:51:00+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-07-29T22:27:20+08:00</lastmod>
+    <lastmod>2026-08-08T00:51:00+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2026-07-29T22:27:20+08:00</lastmod>
+    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/%E5%AD%A6%E4%B8%9A/</loc>
-    <lastmod>2026-07-29T22:27:20+08:00</lastmod>
+    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2026-07-29T22:27:20+08:00</lastmod>
@@ -33,26 +39,19 @@
     <lastmod>2026-07-29T22:27:20+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/20260725/</loc>
-    <lastmod>2026-07-29T22:27:20+08:00</lastmod>
+    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/%E6%B8%B8%E8%AE%B0/</loc>
-    <lastmod>2026-07-29T22:27:20+08:00</lastmod>
+    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
     <lastmod>2026-07-19T16:30:57+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
+    <loc>http://localhost:1313/about/</loc>
+  </url><url>
     <loc>http://localhost:1313/weekly/</loc>
     <lastmod>2026-07-25T22:20:38+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/archives/</loc>
-    <lastmod>2026-07-19T16:30:57+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/search/</loc>
-    <lastmod>2026-07-19T16:30:57+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/welcome-header/</loc>
-    <lastmod>2026-07-24T01:50:45+08:00</lastmod>
   </url>
 </urlset>
