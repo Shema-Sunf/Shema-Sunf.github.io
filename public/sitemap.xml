@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://localhost:1313/weekly/2026-week-32/</loc>
-    <lastmod>2026-08-08T00:51:00+08:00</lastmod>
+    <lastmod>2026-08-08T23:58:51+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/2026%E5%B9%B408%E6%9C%88/</loc>
-    <lastmod>2026-08-08T00:51:00+08:00</lastmod>
+    <lastmod>2026-08-08T23:58:51+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-08-08T00:51:00+08:00</lastmod>
+    <lastmod>2026-08-08T23:58:51+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2026-08-05T00:38:29+08:00</lastmod>
@@ -50,6 +50,7 @@
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
+    <lastmod>2026-08-08T23:58:51+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/weekly/</loc>
     <lastmod>2026-07-25T22:20:38+08:00</lastmod>

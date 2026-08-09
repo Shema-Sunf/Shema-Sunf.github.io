@@ -38,6 +38,12 @@
     }
 }
 
+/* 防止滚动条占用布局宽度 - 使用 gutter 预留空间 */
+html {
+    scrollbar-gutter: stable;
+    overflow-y: auto;
+}
+
 ::-webkit-scrollbar {
     height: 8px;
     width: 8px;
@@ -950,6 +956,7 @@ header h1 a:hover {
     flex-shrink: 0;
     max-height: calc(100vh - 2rem);
     overflow-x: auto;
+    scrollbar-gutter: stable;
 }
 
 .table-of-contents.float {
@@ -1025,6 +1032,7 @@ header h1 a:hover {
     width: 240px;
     max-height: calc(100vh - 8rem);
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 
 .post-toc-panel.active {
@@ -1039,6 +1047,7 @@ header h1 a:hover {
     padding: 0.5em 0.8em;
     max-height: calc(100vh - 12rem);
     overflow-y: auto;
+    scrollbar-gutter: stable;
 }
 
 .post-toc-panel .sidebar-content nav.toc {
@@ -1157,6 +1166,7 @@ pre {
     border-radius:6px;
     padding:0.75rem 1rem;
     margin:1.2rem 0;
-    overflow-x:auto;  
+    overflow-x:auto;
+    scrollbar-gutter: stable;
 }
 </style>
