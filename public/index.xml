@@ -12,6 +12,13 @@
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
 			<item>
+				<title>2026年 - 第33周</title>
+				<link>http://localhost:1313/weekly/2026-week-33/</link>
+				<pubDate>Mon, 10 Aug 2026 23:24:00 +0800</pubDate>
+				<guid>http://localhost:1313/weekly/2026-week-33/</guid>
+				<description>&lt;h2 id=&#34;8月10日一&#34;&gt;8月10日（一）&lt;/h2&gt;&#xA;&lt;p&gt;我就这样玩节奏天国并且不学习.jpg 不过确实感觉这两天没有学习的劲头啊…可能是前段时间脑子里转的知识太多了，现在进入厌战期了。考虑其他事情的心思倒是挺足的，这一点来看倒是好事。晚上看画想了一会，感觉好像还是各种意义上的基本功不扎实，不过就像那句话说的一样，种一棵树最好的时间是那什么，其次是那什么……所以倒不需要气馁。不过画这种速涂，（对我来说）糊弄是没办法的事情，反过来说，画得多了能意识到自己在什么地方糊弄了，抹掉了什么细节，这个现在来看好像反而还挺有用的。或许之后可以想办法弥补一下。&lt;/p&gt;</description>
+			</item>
+			<item>
 				<title>2026年 - 第32周</title>
 				<link>http://localhost:1313/weekly/2026-week-32/</link>
 				<pubDate>Wed, 05 Aug 2026 00:16:00 +0800</pubDate>
