@@ -10,13 +10,20 @@
 		
 		
 		
-			<lastBuildDate>Mon, 10 Aug 2026 23:24:00 +0800</lastBuildDate>
+			<lastBuildDate>Mon, 14 Sep 2026 23:51:14 +0800</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
 			<item>
+				<title>2026年09月</title>
+				<link>http://localhost:1313/tags/2026%E5%B9%B409%E6%9C%88/</link>
+				<pubDate>Mon, 14 Sep 2026 23:43:00 +0800</pubDate>
+				<guid>http://localhost:1313/tags/2026%E5%B9%B409%E6%9C%88/</guid>
+				<description></description>
+			</item>
+			<item>
 				<title>2026年08月</title>
 				<link>http://localhost:1313/tags/2026%E5%B9%B408%E6%9C%88/</link>
-				<pubDate>Mon, 10 Aug 2026 23:24:00 +0800</pubDate>
+				<pubDate>Mon, 24 Aug 2026 23:30:00 +0800</pubDate>
 				<guid>http://localhost:1313/tags/2026%E5%B9%B408%E6%9C%88/</guid>
 				<description></description>
 			</item>

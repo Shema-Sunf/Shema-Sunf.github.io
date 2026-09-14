@@ -21,7 +21,7 @@ type: "static"
 
 ### 友情链接
 
-{{<img src="/img/friendlink_hoshi.png" alt="虹星的星虹巢" caption="虹星的星虹巢" align="left" link="https://hoshi-rainbowsou.bearblog.dev/" >}}
+{{<img src="/img/friendlink_hoshi.png" alt="虹星的星虹巢" caption="虹星的星虹巢" align="left" link="https://arcarlight.github.io/BlogStand/" >}}
 
 
 
