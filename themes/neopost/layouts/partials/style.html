@@ -1149,6 +1149,15 @@ header h1 a:hover {
         padding: .3em 1em;
     }
 
+    /* 移动端：缩小上一篇/下一篇宽度，防止 |TOP| 被挤成两行 */
+    .nav-prev, .nav-next {
+        max-width: 25%;
+    }
+
+    .nav-links {
+        gap: 0.5em;
+    }
+
     /* 移动端适配悬浮目录 */
     .post-toc-floating {
         left: 0.5em;
@@ -1169,4 +1178,27 @@ pre {
     overflow-x:auto;
     scrollbar-gutter: stable;
 }
+
+/* === 辅助文字格式 === */
+.text-small { font-size: 0.85em; }
+.text-tiny { font-size: 0.75em; }
+.text-gray { color: var(--special-text-color); opacity: 0.85; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.caption {
+    font-size: 0.85em;
+    color: var(--special-text-color);
+    text-align: center;
+    display: block;
+    margin-top: 0.3em;
+    opacity: 0.85;
+}
+
+/* img shortcode align 属性 */
+figure[data-align="center"] { text-align: center; }
+figure[data-align="right"] { text-align: right; }
+figure[data-align="left"] { text-align: left; }
+figure[data-align="center"] img,
+figure[data-align="right"] img,
+figure[data-align="left"] img { display: inline-block; }
 </style>

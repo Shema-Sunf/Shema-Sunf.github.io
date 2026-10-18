@@ -70,6 +70,12 @@ frontmatter:
     - publishDate
     - pubDate
 
+# 允许 Markdown 中使用 HTML 标签
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+
 # 安全设置
 security:
   funcs:

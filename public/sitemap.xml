@@ -2,14 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/weekly/2026-week-38/</loc>
-    <lastmod>2026-09-17T23:37:14+08:00</lastmod>
+    <loc>http://localhost:1313/posts/20261018/</loc>
+    <lastmod>2026-10-18T23:52:31+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/2026%E5%B9%B409%E6%9C%88/</loc>
-    <lastmod>2026-09-17T23:37:14+08:00</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-10-18T23:52:31+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2026-09-17T23:37:14+08:00</lastmod>
+    <lastmod>2026-10-18T23:52:31+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E4%BD%9C%E5%93%81/</loc>
+    <lastmod>2026-10-18T23:52:31+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</loc>
+    <lastmod>2026-10-18T23:52:31+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%E6%B8%B8%E6%88%8F/</loc>
+    <lastmod>2026-10-18T23:52:31+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/2026-week-42/</loc>
+    <lastmod>2026-10-16T23:56:38+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/2026%E5%B9%B410%E6%9C%88/</loc>
+    <lastmod>2026-10-16T23:56:38+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/2026-week-41/</loc>
+    <lastmod>2026-10-12T00:31:19+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/2026-week-40/</loc>
+    <lastmod>2026-10-10T13:26:14+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/2026%E5%B9%B409%E6%9C%88/</loc>
+    <lastmod>2026-10-10T13:26:14+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/2026-week-39/</loc>
+    <lastmod>2026-09-28T09:39:24+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/weekly/2026-week-38/</loc>
+    <lastmod>2026-09-21T00:35:12+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/weekly/2026-week-37/</loc>
     <lastmod>2026-09-12T23:45:42+08:00</lastmod>
@@ -31,12 +61,6 @@
   </url><url>
     <loc>http://localhost:1313/weekly/2026-week-32/</loc>
     <lastmod>2026-08-09T23:45:25+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2026-08-05T00:38:29+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/%E5%AD%A6%E4%B8%9A/</loc>
     <lastmod>2026-08-05T00:38:29+08:00</lastmod>
@@ -71,7 +95,7 @@
     <loc>http://localhost:1313/categories/</loc>
   </url><url>
     <loc>http://localhost:1313/about/</loc>
-    <lastmod>2026-09-14T23:57:25+08:00</lastmod>
+    <lastmod>2026-09-18T20:43:39+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/weekly/</loc>
     <lastmod>2026-07-25T22:20:38+08:00</lastmod>

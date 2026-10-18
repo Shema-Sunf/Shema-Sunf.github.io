@@ -1148,6 +1148,15 @@ header h1 a:hover {
     }
 
      
+    .nav-prev, .nav-next {
+        max-width: 25%;
+    }
+
+    .nav-links {
+        gap: 0.5em;
+    }
+
+     
     .post-toc-floating {
         left: 0.5em;
         top: 4rem;
@@ -1167,6 +1176,29 @@ pre {
     overflow-x:auto;
     scrollbar-gutter: stable;
 }
+
+ 
+.text-small { font-size: 0.85em; }
+.text-tiny { font-size: 0.75em; }
+.text-gray { color: var(--special-text-color); opacity: 0.85; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.caption {
+    font-size: 0.85em;
+    color: var(--special-text-color);
+    text-align: center;
+    display: block;
+    margin-top: 0.3em;
+    opacity: 0.85;
+}
+
+ 
+figure[data-align="center"] { text-align: center; }
+figure[data-align="right"] { text-align: right; }
+figure[data-align="left"] { text-align: left; }
+figure[data-align="center"] img,
+figure[data-align="right"] img,
+figure[data-align="left"] img { display: inline-block; }
 </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1212,6 +1244,11 @@ pre {
                 
                 <div class="recent-post-item">
                 <span class="recent-post-date">${post.date.substring(2, 4)}/${post.date.substring(5, 7)}/${post.date.substring(8, 10)}</span>
+                    <a href="/posts/20261018/">《物华弥新》器者考据：五星出东方</a>
+                </div>
+                
+                <div class="recent-post-item">
+                <span class="recent-post-date">${post.date.substring(2, 4)}/${post.date.substring(5, 7)}/${post.date.substring(8, 10)}</span>
                     <a href="/posts/20260730/">阅读笔记：The Precious Lord</a>
                 </div>
                 
@@ -1237,15 +1274,15 @@ pre {
                 
                 
                 
+                    <li><a href="/tags/2026%E5%B9%B409%E6%9C%88/">2026年09月 <span class="tag-count">(5)</span></a></li>
+                
                     <li><a href="/tags/2026%E5%B9%B408%E6%9C%88/">2026年08月 <span class="tag-count">(4)</span></a></li>
                 
-                    <li><a href="/tags/2026%E5%B9%B409%E6%9C%88/">2026年09月 <span class="tag-count">(3)</span></a></li>
+                    <li><a href="/tags/%E5%8D%9A%E5%AE%A2/">博客 <span class="tag-count">(4)</span></a></li>
                 
-                    <li><a href="/tags/%E5%8D%9A%E5%AE%A2/">博客 <span class="tag-count">(3)</span></a></li>
+                    <li><a href="/tags/2026%E5%B9%B410%E6%9C%88/">2026年10月 <span class="tag-count">(2)</span></a></li>
                 
                     <li><a href="/tags/%E5%AD%A6%E4%B8%9A/">学业 <span class="tag-count">(2)</span></a></li>
-                
-                    <li><a href="/tags/2026%E5%B9%B407%E6%9C%88/">2026年07月 <span class="tag-count">(1)</span></a></li>
                 
                 </ul>
             </div>
@@ -1260,6 +1297,15 @@ pre {
 <script>
 window.blogData = {
     posts: [
+        
+        {
+            title: "《物华弥新》器者考据：五星出东方",
+            url: "/posts/20261018/",
+            date: "2026-10-18",
+            year:  2026 ,
+            month: "October",
+            tags: ["博客","游戏","作品"]
+        },
         
         {
             title: "阅读笔记：The Precious Lord",
@@ -1324,6 +1370,18 @@ window.blogData = {
                     
                 
             
+                
+                    
+                
+            
+        
+            
+                
+            
+                
+                    
+                
+            
         
             
                 
@@ -1345,8 +1403,6 @@ window.blogData = {
             
         
             
-                
-            
         
             
                 
@@ -1364,11 +1420,29 @@ window.blogData = {
                 
             
         
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+        
+        
+        "作品": {
+            latestUrl: "/posts/20261018/",
+            count:  1 
+        },
         
         
         "博客": {
-            latestUrl: "/posts/20260730/",
-            count:  3 
+            latestUrl: "/posts/20261018/",
+            count:  4 
         },
         
         
@@ -1381,6 +1455,12 @@ window.blogData = {
         "学业": {
             latestUrl: "/posts/20260730/",
             count:  2 
+        },
+        
+        
+        "游戏": {
+            latestUrl: "/posts/20261018/",
+            count:  1 
         },
         
         
@@ -1400,6 +1480,42 @@ window.blogData = {
 
 window.weeklyData = {
     posts: [
+        
+        {
+            title: "2026年 - 第42周",
+            url: "/weekly/2026-week-42/",
+            date: "2026-10-12",
+            year:  2026 ,
+            month: "October",
+            tags: ["2026年10月"]
+        },
+        
+        {
+            title: "2026年 - 第41周",
+            url: "/weekly/2026-week-41/",
+            date: "2026-10-06",
+            year:  2026 ,
+            month: "October",
+            tags: ["2026年10月"]
+        },
+        
+        {
+            title: "2026年 - 第40周",
+            url: "/weekly/2026-week-40/",
+            date: "2026-09-28",
+            year:  2026 ,
+            month: "September",
+            tags: ["2026年09月"]
+        },
+        
+        {
+            title: "2026年 - 第39周",
+            url: "/weekly/2026-week-39/",
+            date: "2026-09-22",
+            year:  2026 ,
+            month: "September",
+            tags: ["2026年09月"]
+        },
         
         {
             title: "2026年 - 第38周",
@@ -1504,9 +1620,23 @@ window.weeklyData = {
         
         
         "2026年09月": {
-            latestUrl: "/weekly/2026-week-38/",
-            count:  3 
+            latestUrl: "/weekly/2026-week-40/",
+            count:  5 
         },
+        
+        
+        
+        
+        "2026年10月": {
+            latestUrl: "/weekly/2026-week-42/",
+            count:  2 
+        },
+        
+        
+        
+        
+        
+        
         
         
         

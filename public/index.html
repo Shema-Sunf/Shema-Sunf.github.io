@@ -1149,6 +1149,15 @@ header h1 a:hover {
     }
 
      
+    .nav-prev, .nav-next {
+        max-width: 25%;
+    }
+
+    .nav-links {
+        gap: 0.5em;
+    }
+
+     
     .post-toc-floating {
         left: 0.5em;
         top: 4rem;
@@ -1168,6 +1177,29 @@ pre {
     overflow-x:auto;
     scrollbar-gutter: stable;
 }
+
+ 
+.text-small { font-size: 0.85em; }
+.text-tiny { font-size: 0.75em; }
+.text-gray { color: var(--special-text-color); opacity: 0.85; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.caption {
+    font-size: 0.85em;
+    color: var(--special-text-color);
+    text-align: center;
+    display: block;
+    margin-top: 0.3em;
+    opacity: 0.85;
+}
+
+ 
+figure[data-align="center"] { text-align: center; }
+figure[data-align="right"] { text-align: right; }
+figure[data-align="left"] { text-align: left; }
+figure[data-align="center"] img,
+figure[data-align="right"] img,
+figure[data-align="left"] img { display: inline-block; }
 </style>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1209,7 +1241,7 @@ pre {
   <ul>
 
       <li>
-        <a href="/posts/20260730/#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2" class="toc-item toc-level-1">
+        <a href="/posts/20261018/#%e5%86%99%e5%9c%a8%e5%89%8d%e9%9d%a2" class="toc-item toc-level-1">
           
           
           
@@ -1218,20 +1250,74 @@ pre {
       </li>
 
       <li>
-        <a href="/posts/20260730/#%e4%b8%8b%e9%9d%a2%e6%98%af%e8%ae%ba%e6%96%87%e7%bb%93%e6%9e%84" class="toc-item toc-level-1">
+        <a href="/posts/20261018/#%e4%b8%80" class="toc-item toc-level-1">
           
           
           
-           &mdash;下面是论文结构&mdash;
+           一
         </a>
       </li>
 
       <li>
-        <a href="/posts/20260730/#chapter-1%e4%bd%95%e4%b8%ba%e8%a7%89%e6%b2%83" class="toc-item toc-level-1">
+        <a href="/posts/20261018/#%e4%ba%8c" class="toc-item toc-level-1">
           
           
           
-           Chapter 1：何为“觉沃”？
+           二
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20261018/#%e4%b8%89" class="toc-item toc-level-1">
+          
+          
+          
+           三
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20261018/#%e5%9b%9b" class="toc-item toc-level-1">
+          
+          
+          
+           四
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20261018/#%e4%ba%94" class="toc-item toc-level-1">
+          
+          
+          
+           五
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20261018/#%e5%85%ad" class="toc-item toc-level-1">
+          
+          
+          
+           六
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20261018/#%e5%90%8e%e8%ae%b0" class="toc-item toc-level-1">
+          
+          
+          
+           后记
+        </a>
+      </li>
+
+      <li>
+        <a href="/posts/20261018/#%e5%8f%82%e8%80%83%e6%96%87%e7%8c%ae" class="toc-item toc-level-1">
+          
+          
+          
+           参考文献
         </a>
       </li>
   </ul>
@@ -1247,31 +1333,105 @@ pre {
     
     <main class="main-content">
     
-        <article id="post-content" data-post-url="/posts/20260730/">
-            <h2><a href="/posts/20260730/">阅读笔记：The Precious Lord</a></h2>
+        <article id="post-content" data-post-url="/posts/20261018/">
+            <h2><a href="/posts/20261018/">《物华弥新》器者考据：五星出东方</a></h2>
             
             标签|
             
             <a href="javascript:void(0)" class="tag-link" data-tag="博客" onclick="filterByTag('博客')">博客</a> ×
             
-            <a href="javascript:void(0)" class="tag-link" data-tag="学业" onclick="filterByTag('学业')">学业</a> ×
+            <a href="javascript:void(0)" class="tag-link" data-tag="游戏" onclick="filterByTag('游戏')">游戏</a> ×
             
-            <a href="javascript:void(0)" class="tag-link" data-tag="阅读" onclick="filterByTag('阅读')">阅读</a>
+            <a href="javascript:void(0)" class="tag-link" data-tag="作品" onclick="filterByTag('作品')">作品</a>
             
             <div class="post-header">
                 @毒毒味硬糖
                 
-                
-                <span class="last-updated">（最后更新: 2026/07/29）</span>
-                
-                
-                <span class="timestamp">2026/07/30</span>
+                <span class="timestamp">2026/10/18</span>
             </div>
             <div class="post-content">
                 <h2 id="写在前面">写在前面</h2>
-<p>因为自己也要写硕论了，所以想看看一篇标准的学位论文是怎样的，顺便也复健一下读文章的能力，就选了一篇来读。这篇论文的全名是<em>The Precious Lord: The History and Practice of the Cult of the Jo bo Śākyamuni in Lhasa, Tibet</em>，由Cameron David Warner于2008年向哈佛大学梵文与印度研究学部提交，是目前所见关于觉沃仁波切唯一比较详尽的研究。这篇笔记首先应该是一个摘要，其次会重点关注结构、材料组织，以及逻辑。因为实际上我从来没写过这种东西，所以也不知道能写成什么样。不过不出意外的话，之后或许要常写了，所以加油吧……</p>
-<h2 id="下面是论文结构">&mdash;下面是论文结构&mdash;</h2>
-<h2 id="chapter-1何为觉沃">Chapter 1：何为“觉沃”？</h2>
+<p>这是两年半以前（2024/04/28）写给《物华弥新》的器者考据，契机是这游戏刚刚开服，TapTap的社区开了一个创作大赛，投稿参赛可能获得奖品（最后好像是拿了一副AirPods之类的），当时很喜欢这个白毛正太的设计，正好也有兴致，种种原因之下就写了我人生中的第一篇二游考据（很幸运或者说很不幸，不是最后一篇），投在了TapTap上，用的就是“天关星梦游”的名义。</p>
+<p>因为前段时间翻出来又看，感觉哎呀好感慨，于是决定也转载到这里奇文共欣赏一下，毕竟是我比较早年的写作实践，也算是纪念我的青春吧。原文行文可能有一些微妙，不过为了保持原貌，还是一字不动，仅添加了一到六的段落序号。还希望看到的人不要笑话就是。</p>
+
+<figure  data-align="center"><img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/doku_blog_images@master/images/blog20261018-0.png"></figure>
+
+<p class = "caption">原本的封面图片，记得做得还挺用心的。</p>
+<h2 id="一">一</h2>
+<pre tabindex="0"><code>「水滋润陆地，星添色夜空，我就此睡去，
+听见历史的车马不断驶过……不过是一时东风，又一时西风。」
+（五星出东方·精研语音）
+</code></pre><p>1900年，当奥莱尔·斯坦因深入广阔无边的塔克拉玛干沙漠，发现尼雅河尽头的那片古代遗址时，或许也未曾察觉，一个西域考古的时代已经缓缓拉开帷幕。沉睡千年的古木、枯骨、残垣与简牍将被惊动；那些被风沙所掩覆，却又藉此才幸存至今的珍贵文物，将被一件件地悉心发掘——然后被运离故土，流散至异国他乡，百年不还。「流沙坠简，铁云藏龟」，近代中国最重要的两种考古材料之一的西域文牍，就是在这段纷扰的历史中现身。斯坦因本人，也将因取走敦煌藏经洞的写本古籍而成为国人眼中无耻的掠夺者。</p>
+
+<figure  data-align="center"><img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/doku_blog_images@master/images/blog20261018-1.jpg"></figure>
+
+<p class = "caption">奥莱尔·斯坦因，摄于1909年。</p>
+<p>不过，尽管尼雅遗址那时就已发现，但斯坦因的条件并不能支持全面科学的考古田野调查，即便他三度到访此地，也仍未能探清这片遗址的全貌。许多文物仍然静静地卧于尼雅的黄沙之中，未被地上的喧嚣所扰。「五星出东方利中国」护膊，正是其中一员。</p>
+<h2 id="二">二</h2>
+<pre tabindex="0"><code>「人们在黄沙中建立堡垒，一个国度就此成立，
+远道而来的骡马运来赏赐和货物，如此有了密切的往来。
+从荒漠变得繁华，从零到一切……历史就是这样发展的。
+我们器者只会观望，从不干预。」
+（五星出东方·躍升语音）
+</code></pre><p>尼雅遗址乃精绝王国故地的观点，斯坦因在1921年的《西域考古图记》中就已得出，也为今天的我们所认同。这一观点最有力的考古证据，是于尼雅遗址发现的记有「汉精绝王」四字的汉代木牍。精绝国一名，初见于《汉书·西域传》，或为武帝始通西域时其地的「三十六国」之一。据汉书记载，精绝国东去且未国二千里，西通扜弥国四百六十里。且未、扜弥二地所在，今天我们已经大致知晓，在尼雅河上游发现精绝王国的遗址，与之也可以相互应证。地上地下的「二重证据」，基本确证了尼雅遗址正是汉书精绝国的城址。</p>
+<p>精绝国是由谁建立，又在何时，今天已不可考，在当地发现的佉卢文文书与犍陀罗风格的木雕、建筑或许暗示了其住民的犍陀罗背景（犍陀罗地区，范围约相当于今阿富汗东部、巴基斯坦西北部，尤因其融合了希腊、印度、波斯特征的早期佛教艺术而闻名）。从考古成果和传世文献中我们可以知道，在西汉，精绝就已成为丝绸之路沿线，交通东西的要地。到了东汉明帝永平中（公元58–75年），于阗、莎车二国相争，西域变乱，精绝约在此时为鄯善（楼兰）所并。即使经历了孔雀河断流、内部政变、柔然等国的入侵等种种不利事件，鄯善仍然一直存续到五世纪——这一点能通过《魏书》得到印证。但到六世纪时，塔克拉玛干北道兴起，这片地区失去了交通枢纽的地位。到唐贞观三年（公元629年）玄奘出西域时，历经「尼攘城」，所见的就已经是「芦草荒茂无复途径」的荒弃之景。尼雅遗址为何被废弃，在传世文献中无法找到答案，或许是环境恶化，或许是外敌入侵。城中贮藏的小米、被细心掩埋等待掘出的文书，种种迹象表明，这里发生的是一场有计划的撤离，而当地人也本准备返回。但无论如何，他们最终没有回来，只留下了一座失落在黄沙中的城池。从荒漠变得繁华，又从繁华归于荒漠，历史就是这样发展。所幸的是，过去的一切并没有全部风化逝去，而「五星出东方利中国」护膊，就在近两千年的等待后，为人们所发现。数十年的时光，相较而言，或许确实只是片刻的短睡吧。</p>
+<h2 id="三">三</h2>
+<pre tabindex="0"><code>「五星出东方利中国，再五分钟……」
+（五星出东方·招集语音）
+</code></pre><p>1988年，由两国人士共同组建的「中日共同尼雅遗迹考察队」对尼雅遗址进行了第一次预备调查，这是自1959年新疆博物馆调查队后，尼雅遗址迎来的第一支专业考察队。对尼雅遗址的共同考察时跨九年，获得了丰富的成果，「五星出东方利中国」护膊即是其中最受瞩目的一件文物。</p>
+<p>「五星出东方利中国」护膊，出土于1995年，尼雅遗址95MN1号墓地的M8墓穴。此墓为汉晋之际的一座男女合葬墓，经碳-14测定，绝对年代约在公元205±60年。男墓主身边置有弓、箭袋、数支箭与一柄小木叉，木叉之上缠绕着一片带有「五星出东方利中国」字样的锦织物。此部分文物应当是墓主生前惯用之物，而由这片织物的形制判断，再加上同出的弓、箭等物为辅证，主流看法认为这片织物应来自一件「护膊」，也即使弓之人佩戴于前臂，用于防止弓弦扫伤前臂内侧的护具。与这块护膊同出的纺织品还有数件，如「千秋万岁宜子孙」锦枕、形制与护膊相似的「讨南羌」锦、龟甲纹地毯、绣花彩毡等，织、绣工艺皆很精湛。墓中并无可证明墓主身份之物，但墓主衣着华丽，葬法与葬具规制独特，陪葬品又多数为中原王朝的赐赠品，故推定墓主应属于当时尼雅城的贵族阶层。</p>
+
+<figure  data-align="center"><img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/doku_blog_images@master/images/blog20261018-2.png"></figure>
+
+<p class = "caption">M8墓出土弓、矢摄影，《中日日中共同尼雅遗迹学术调查报告书》书影。</p>
+<h2 id="四">四</h2>
+<pre tabindex="0"><code>「织锦的手法……
+抱歉，虽然看别人织过，但看着看着我就睡着了……」
+（五星出东方·交谈语音1）
+</code></pre><p>说回护膊本身。「五星出东方利中国」护膊为一块长方形圆角锦织物，长18.5厘米，宽12.5厘米，外围由白绢包裹，缀六条绑带。制造工艺上，此锦为经二重平纹、经五重的经锦。「平纹」即经纱与纬纱一上一下交织的结构；「经二重平纹」则指由两个系统的经纱与一个系统的纬纱构成的平纹；「经五重」意为使用了五种颜色的经纱，通过交换表经、里经显出不同颜色；而「经锦」就是以经纱显色，这是汉代织锦的基本特点之一。</p>
+
+<figure  data-align="center"><img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/doku_blog_images@master/images/blog20261018-3.jpg"></figure>
+
+<p class = "caption">二重至五重平纹经锦结构示意图，纵向为经纱，横向为纬纱。</p>
+<p>锦面上宝蓝、绛红、草绿、明黄与白色五组色经显花，织出云气、瑞兽、星辰等纹样，上下花纹之间贯穿「五星出东方利中国」小篆文字。「五星出东方利中国」护膊纹样精美，织造技术复杂，织线密度极高，保存状态良好，至今仍为出土的汉代织锦中所罕见之珍品。也正因此，它被定为国家一级文物，并在2002年被国家文物局列入首批《禁止出国（境）展览文物目录》。对「五星出东方利中国」护膊的复制自出土以来即付诸实践，但直到2013年四川省老官山汉墓出土汉织机，才让现代技术人员得以复原汉代一勾多综式提花机，从而有了利用汉锦工艺复制它的可能。这项复制工程于2015年开始，耗时逾一年始告成功。今天新疆维吾尔自治区博物馆所展出的，即是其成品之一。这般复杂的工艺，也可以提示我们，「五星出东方利中国」护膊并非尼雅造物，而应当是作为赐赠（考虑到其精美异常，以及字样含义，不似丝路上流通的商品）带到此地。这也能解释为何在远离华夏的尼雅出土的织物上，发现了「五星出东方利中国」这样令人遐想的字样。</p>
+
+<figure  data-align="center"><img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/doku_blog_images@master/images/blog20261018-4.jpg"></figure>
+
+<p class = "caption">「五星出东方利中国」护膊（复制品）主体部分摄影，于新疆维吾尔自治区博物馆。</p>
+<h2 id="五">五</h2>
+<pre tabindex="0"><code>「没有穿越……不会预言……嗯……真的不会。」
+（五星出东方·独处语音）
+</code></pre><p>「五星出东方利中国」，其意何在？1995年的中国，这条来自文物的神秘讯息，牵动了无数人的心绪。「五星」出东方，利「中国」。古锦上织出的语句仿佛是分毫不差地昭示了20世纪中国的命运。谶纬、谣谚，那些往日的幻象仿佛藉由这一片柔弱的锦织重新降临在这片大地上，如同千年以前。但就好像今日的我们已经明了的那样，此「五星」指的是荧惑、填（镇）星、辰星、岁星、太白，也即今日的火、土、水、木、金五颗太阳系行星；而此「中国」，指的是传统意义上的华夏中原，以河洛为中心的地域。这句话实际上是一句星占的占辞，从字面意思上理解，就是在说：五星出现在天空的东方，有利于中原地区。</p>
+<p>此句见于典籍的年代很早，唐代占星家瞿昙悉达《开元占经·五星占》引石氏之语曰：「五星分天之中，积于东方，中国大利；积于西方，负海之国，用兵者利。」此石氏指战国时人，魏国占星家石申。他著有《天文》八卷，今已佚失，但有大量内容在《开元占经》中得到了保存。石申其人见于《史记·天官书》，其书在《史记》《汉书》中也见引述，可以确信，战国时已有此句占辞。《汉书·赵充国传》载，汉将赵充国领兵征讨西羌（西汉时居于甘、青一带的羌族）时，汉宣帝给他下诏促其进军，说：「今五星出东方，中国大利，蛮夷大败。太白出高，用兵深入敢战者吉，弗敢战者凶。将军急装，因天时，诛不义，万下必全，勿复有疑。」宣帝将「五星出东方」与「太白出高」并举，不似虚辞，而更有可能是当时确有的星象。有学者认为，将「五星出东方利中国」护膊上的字样与同出的「讨南羌」锦连读，或许锦上文字正是指这一历史事件，是否果真如此，还待考察。但是，可以确信的是，锦上织出这样的占辞，无疑表明了制锦者的美好祝愿。</p>
+<p>话说回来，其实以五星配五行，以五色绘五星，并非原本如此，而是汉代谶纬神学的产物。五行学说本不显赫，但到西汉年间，经董仲舒等一众经学家演化为五德终始说，再配之以天人感应的神授观，就成了支配中国古代王朝的一种最强大的信念，尤其被应用于确立易代的正统性与合法性——不过，这个暂且不提。汉代的谶纬学家热衷于将一切与五行相配对，如五方、五色、五帝、五官，等等。对于天象也是如此，不仅五星，还有东西南北四宫（四象）与其相对应的二十八宿。汉所厘定，沿用至于后世的星官体系，也因而浸润着五行学说的气息。「五星出东方利中国」护膊以五色锦织成，也正是此意。因此，这片锦更可以说是汉代占星学成果的一个实证了。</p>
+<h2 id="六">六</h2>
+<pre tabindex="0"><code>「和我的能力没关系。能有今天，都是因为你的努力。」
+（五星出东方·破局成功语音1）
+</code></pre>
+<figure  data-align="center"><img src="https://cdn.jsdelivr.net/gh/Shema-Sunf/doku_blog_images@master/images/blog20261018-5.png"></figure>
+
+<p class = "caption">「五星出东方」肖形立绘。</p>
+<p>「五星出东方」的肖形立绘最引人注目的，大概就是他双手托起的那片氤氲云气，映出深空的幻象，浮现无数的星宿。在他的身后，木星、土星、火星、金星、水星连成一线，正是五星齐聚的描绘。值得一提的是，天文爱好者或许能很快辨认出来，这幅星图表现的是近南极星区，中心大约就落在「五星出东方」的眉心。近南极星区的二十三个星宿，因为观测问题，要到明末徐光启的《崇祯历书》，才根据西方星表著录，正式纳入中国的星官体系。不知深埋沙底的「五星出东方」是何时目睹了这片星辰。也说不定，是作画失误吧（</p>
+<p>最后，关于器者的文案。常击技能「尼雅星辰」，即是在说文物的发现地；绝技「五星分天」，是原占辞「五星分天之中」的节略；被动1「云汉无极」，云即天空，汉即银河，云汉无极即谓宇宙无垠。锦鲤体质的设定，自然源于其美好含义；而说是唯物主义者…或许正是在反思那份已经落灰的占星学的虔信吧。「五星出东方利中国」，本是一种前现代的魅影，截取出的「五星出东方」五字，却成了对天象的朴实、客观的描述。前现代的所谓「星占迷信」，何尝不是地上的人对于难以触及的天上之事的思索，而这份占星术的思索最终经历祛魅，获得的就是作为天文学的清澈与纯净。今天的我们明白，天象不能昭示吉凶，狐鸣鱼书、谶纬谣谚亦是如此。能有今天，不在他人，不在外物，都是因为你的努力。</p>
+<h2 id="后记">后记</h2>
+<p>首先感谢你能读到这里！虽然做这类角色考据也还算是我惯熟的事情，但以这样的考据专栏的形式来表述，也算是第一次。《物华弥新》的角色设计依托于文物本身，而文物所关系的历史渊源、文化底蕴，反映为信息量和兴趣点，自然殊异。「五星出东方」或许就是在知识上关涉最广的器者之一。虽然花了几天整理材料，梳理行文思路，但作为晚辈后学，难免有疏漏、出错之处，还望各位不吝赐教。</p>
+<p>「五星出东方」是喜欢了很久的器者，那种淡淡的怠懒与严肃相结合的人物形象（以及非常超模的强度）尤其吸引我。如果这篇小文能让对器者文物的前世今生感兴趣的同好获得一点知识与感悟，那就是我莫大的幸事了。说起来，也是我这两天翻回贴记录才发现，我高考那年还在来古弥新在TapTap发的高考祈福贴（当然配图是锦鲤五星！）下面回复了一句，希望能够考出好成绩。或许，确实是有什么神奇的缘分吧。</p>
+<p>对了，如果有闲暇的话，这个系列大概还会继续连载下去……嘛，毕竟都写了「一」了，要是就此一篇的话，也多少有些说不过去吧。那么，就是这样，各位下次再见~</p>
+<h2 id="参考文献">参考文献</h2>
+<p>（基本史料不列，正史据中华书局点校本）：</p>
+<p>1.著作</p>
+<p>[1]中日日中共同尼雅遗迹学术考察队：《中日日中共同尼雅遗迹学术调查报告书》（第二卷），1999年。</p>
+<p>[2]奥雷尔·斯坦因：《踏勘尼雅遗址》，刘文锁等译，桂林：广西师范大学出版社，2000年。</p>
+<p>[3]荣新江：《敦煌学十八讲》，北京：北京大学出版社，2001年。</p>
+<p>[4]芮乐伟·韩森：《丝绸之路新史》，张湛译，北京：北京联合出版公司，2015年。</p>
+<p>[5]巴亮主编：《织物结构与设计》，北京：中国纺织出版社，2015年。</p>
+<p>2.期刊论文</p>
+<p>[1]顾颉刚：《五德终始说下的政治和历史》，《清华学报》1930年第1期。</p>
+<p>[2]新疆维吾尔自治区博物馆考古队：《新疆民丰大沙漠中的古代遗址》，《考古》1961年第3期。</p>
+<p>[3]于志勇：《新疆尼雅出土“五星出东方利中国”彩锦织文初析》，《西域研究》1996年第3期。</p>
+<p>[4]于志勇：《新疆民丰县尼雅遗址95MNI号墓地M8发掘简报》，《文物》2000年第1期。</p>
+<p>[5]刘文锁：《尼雅考古一百年》，《考古》2005年第11期。</p>
+<p>[6]尚玉平，欧阳盼，刁常宇，李志荣：《新疆尼雅墓地出土纺织品文物的数字化信息采集——以95MNIM8∶15“五星出东方利中国”织锦护臂为例》，《文物》2020年第5期。</p>
 
             </div>
             
@@ -1287,7 +1447,7 @@ pre {
                 <a href="#" class="nav-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">|　TOP　|</a>
 
                 
-                <a href="/posts/20260729/" class="nav-next" data-nav="next">闲时的愿望单 &gt;</a>
+                <a href="/posts/20260730/" class="nav-next" data-nav="next">阅读笔记：The Precious Lord &gt;</a>
                 
             </div>
         </div>
@@ -1341,6 +1501,18 @@ pre {
                             
                         
                     
+                        
+                            
+                        
+                    
+                
+                    
+                        
+                    
+                        
+                            
+                        
+                    
                 
                     
                         
@@ -1385,26 +1557,12 @@ pre {
                     
                 
                     
-                        
-                    
-                
-                    
                 
                     
                         
                     
                 
                     
-                        
-                    
-                
-                    
-                        
-                    
-                
-                
-                
-                
                 
                     
                         
@@ -1428,17 +1586,53 @@ pre {
                 
                 
                 
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="博客" onclick="navigateToTag('博客')">博客<span class="tag-count">(3)</span> </a></li>
-                
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="学业" onclick="navigateToTag('学业')">学业<span class="tag-count">(2)</span> </a></li>
-                
-                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="阅读" onclick="navigateToTag('阅读')">阅读<span class="tag-count">(1)</span> </a></li>
                 
                 
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                    
+                        
+                    
+                
+                
+                
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="博客" onclick="navigateToTag('博客')">博客<span class="tag-count">(4)</span> </a></li>
+                
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="作品" onclick="navigateToTag('作品')">作品<span class="tag-count">(1)</span> </a></li>
+                
+                    <li class="new-tag"><span class="new-badge">New!!</span><a href="javascript:void(0)" data-tag="游戏" onclick="navigateToTag('游戏')">游戏<span class="tag-count">(1)</span> </a></li>
+                
+                
+                
+                    <li><a href="javascript:void(0)" data-tag="学业" onclick="navigateToTag('学业')">学业 <span class="tag-count">(2)</span></a></li>
                 
                     <li><a href="javascript:void(0)" data-tag="备忘" onclick="navigateToTag('备忘')">备忘 <span class="tag-count">(1)</span></a></li>
                 
                     <li><a href="javascript:void(0)" data-tag="游记" onclick="navigateToTag('游记')">游记 <span class="tag-count">(1)</span></a></li>
+                
+                    <li><a href="javascript:void(0)" data-tag="阅读" onclick="navigateToTag('阅读')">阅读 <span class="tag-count">(1)</span></a></li>
                 
                 </ul>
             </div>
@@ -1613,6 +1807,15 @@ window.blogData = {
     posts: [
         
         {
+            title: "《物华弥新》器者考据：五星出东方",
+            url: "/posts/20261018/",
+            date: "2026-10-18",
+            year:  2026 ,
+            month: "October",
+            tags: ["博客","游戏","作品"]
+        },
+        
+        {
             title: "阅读笔记：The Precious Lord",
             url: "/posts/20260730/",
             date: "2026-07-30",
@@ -1675,6 +1878,18 @@ window.blogData = {
                     
                 
             
+                
+                    
+                
+            
+        
+            
+                
+            
+                
+                    
+                
+            
         
             
                 
@@ -1696,8 +1911,6 @@ window.blogData = {
             
         
             
-                
-            
         
             
                 
@@ -1715,11 +1928,29 @@ window.blogData = {
                 
             
         
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+        
+        
+        "作品": {
+            latestUrl: "/posts/20261018/",
+            count:  1 
+        },
         
         
         "博客": {
-            latestUrl: "/posts/20260730/",
-            count:  3 
+            latestUrl: "/posts/20261018/",
+            count:  4 
         },
         
         
@@ -1732,6 +1963,12 @@ window.blogData = {
         "学业": {
             latestUrl: "/posts/20260730/",
             count:  2 
+        },
+        
+        
+        "游戏": {
+            latestUrl: "/posts/20261018/",
+            count:  1 
         },
         
         
@@ -1751,6 +1988,42 @@ window.blogData = {
 
 window.weeklyData = {
     posts: [
+        
+        {
+            title: "2026年 - 第42周",
+            url: "/weekly/2026-week-42/",
+            date: "2026-10-12",
+            year:  2026 ,
+            month: "October",
+            tags: ["2026年10月"]
+        },
+        
+        {
+            title: "2026年 - 第41周",
+            url: "/weekly/2026-week-41/",
+            date: "2026-10-06",
+            year:  2026 ,
+            month: "October",
+            tags: ["2026年10月"]
+        },
+        
+        {
+            title: "2026年 - 第40周",
+            url: "/weekly/2026-week-40/",
+            date: "2026-09-28",
+            year:  2026 ,
+            month: "September",
+            tags: ["2026年09月"]
+        },
+        
+        {
+            title: "2026年 - 第39周",
+            url: "/weekly/2026-week-39/",
+            date: "2026-09-22",
+            year:  2026 ,
+            month: "September",
+            tags: ["2026年09月"]
+        },
         
         {
             title: "2026年 - 第38周",
@@ -1855,9 +2128,23 @@ window.weeklyData = {
         
         
         "2026年09月": {
-            latestUrl: "/weekly/2026-week-38/",
-            count:  3 
+            latestUrl: "/weekly/2026-week-40/",
+            count:  5 
         },
+        
+        
+        
+        
+        "2026年10月": {
+            latestUrl: "/weekly/2026-week-42/",
+            count:  2 
+        },
+        
+        
+        
+        
+        
+        
         
         
         
