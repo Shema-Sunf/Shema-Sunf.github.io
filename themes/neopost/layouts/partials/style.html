@@ -1,7 +1,7 @@
 <style>
 {{ $themeName := .Site.Params.theme }}
-{{ $theme := index (where .Site.Data.themes "name" $themeName) 0 }}
-{{ $custom_themes := (index .Site.Data "custom_themes") }}
+{{ $theme := index (where hugo.Data.themes "name" $themeName) 0 }}
+{{ $custom_themes := (index hugo.Data "custom_themes") }}
 {{ if $custom_themes }}
     {{ if not $theme }}
         {{ $theme = index (where $custom_themes "name" $themeName) 0 }}
