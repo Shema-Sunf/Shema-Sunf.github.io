@@ -4,11 +4,22 @@
 	alt: alternative text
 	caption: caption
 	mouse: what the image says when moused over ("title" in HTML)
-	align: alignment of the image (left, center, right), default is left
+	align: alignment of the image (left, center, right), default is center
+	width: explicit CSS width, e.g. "50%", "300px"
+	scale: scale relative to the image's own size, e.g. "0.5" for half size
 -->
+{{- $style := "" -}}
+{{- with .Get "width" -}}
+	{{- $style = printf "width:%s;" . -}}
+{{- else -}}
+	{{- with .Get "scale" -}}
+		{{- $style = printf "zoom:%s;" . -}}
+	{{- end -}}
+{{- end -}}
 <figure {{ with .Get "class" }}class="{{.}}"{{ end }} data-align="{{ .Get "align" | default "center" }}">
 	{{- with .Get "link"}}<a href="{{.}}">{{ end -}}
 	<img src="{{ .Get "src" }}"
+	     {{- with $style }} style="{{ . | safeCSS }}"{{ end -}}
 	     {{- with .Get "mouse" }} title="{{.}}"{{ end -}}
 	     {{- with .Get "alt" }} alt="{{.}}"{{ end -}}
 	>

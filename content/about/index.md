@@ -22,8 +22,12 @@ type: "static"
 ### 友情链接
 
 {{<img src="/img/friendlink_hoshi.png" alt="虹星的星虹巢" caption="虹星的星虹巢" align="left" link="https://arcarlight.github.io/BlogStand/" >}}
+
 {{<img src="/img/friendlink_chenxu.png" alt="花涧堂" caption="花涧堂" align="left" link="https://chenxu-marsheco.github.io/" >}}
+
 {{<img src="/img/friendlink_maths.png" alt="断续的梦" caption="断续的梦" align="left" link="https://maths-s-website1.pages.dev/" >}}
+
+{{<img src="/img/friendlink_map.png" alt="幻想星图会客厅" caption="幻想星图会客厅" align="left" scale="0.5" link="https://mysteriousamateurplayer.github.io/Parlour/" >}}
 
 
 
