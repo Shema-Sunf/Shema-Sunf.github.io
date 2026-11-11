@@ -9,7 +9,7 @@
 {{ end }}
 
 :root {
-    --site-bg: url("{{ index $theme "site-bg" }}");
+    --site-bg: {{ with index $theme "site-bg" }}url("{{ . }}"){{ else }}none{{ end }};
     --accent-color: {{ index $theme "accent-color" }};
     --select-color: {{ index $theme "select-color" }};
     --link-color: {{ index $theme "link-color" }};
@@ -23,7 +23,24 @@
     --outline-color: {{ index $theme "post-outline-color" }};
     --outline-color2: {{ index $theme "post-outline-color2" }};
     --list-style-type: "{{ (index $theme "list-style").type}}";
-    --list-style-image: url("{{ (index $theme "list-style").image }}");
+    --list-style-image: {{ with (index $theme "list-style").image }}url("{{ . }}"){{ else }}none{{ end }};
+}
+
+/* 夜间模式配色 */
+html.night-mode {
+    --accent-color: #e7b5c7;
+    --select-color: #d7a8e4;
+    --link-color: #9D929D;
+    --bg-color: #2E2B2E;
+    --text-color: #e7D5E7;
+    --bg-color2: #332B2E;
+    --border-color: #e9b0d1;
+    --special-text-color: #e7D5E7;
+    --post-header-color: white;
+    --post-shadow-color: #f7a8e480;
+    --outline-color: #d7a8e4;
+    --outline-color2: #f4e1f3;
+    --list-style-type: "";
 }
 
 * {
@@ -107,6 +124,7 @@ body {
 
 .nav-menu {
     display: flex;
+    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -117,15 +135,28 @@ body {
     list-style: none;
 }
 
-.nav-menu li a {
+.nav-menu li a,
+.nav-menu li .theme-toggle {
+    display: inline-block;
     color: var(--text-color);
     text-decoration: none;
     padding: 0.3em 0.8em;
     border-radius: 0.3em;
+    line-height: 1.5;
+    vertical-align: middle;
     transition: all 0.2s ease;
 }
 
-.nav-menu li a:hover {
+.nav-menu li .theme-toggle {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+}
+
+.nav-menu li a:hover,
+.nav-menu li .theme-toggle:hover {
     color: var(--accent-color);
     background-color: var(--select-color);
 }
@@ -1138,7 +1169,8 @@ header h1 a:hover {
         gap: 1em;
     }
 
-    .nav-menu li a {
+    .nav-menu li a,
+    .nav-menu li .theme-toggle {
         padding: 0.2em 0.5em;
         font-size: 0.9em;
     }

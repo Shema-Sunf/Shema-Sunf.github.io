@@ -89,7 +89,6 @@
     # type: "+ "
 
 - name: "light-purple"
-  site-bg: "/black-flowertile.png"
   accent-color: "#9b59b6"
   select-color: "#d7a8e4"
   link-color: "#8e44ad"
@@ -103,5 +102,4 @@
   post-outline-color: "#d7a8e4"
   post-outline-color2: "#f4e1f3"
   list-style:
-    image: "/flower.png"
-    # type: "+ "
+    type: ""
